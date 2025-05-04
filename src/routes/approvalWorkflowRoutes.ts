@@ -1,0 +1,57 @@
+import { ServerRoute } from '@hapi/hapi';
+import * as ApprovalWorkflowController from '../controllers/approvalWorkflowController';
+
+const approvalWorkflowRoutes: ServerRoute[] = [
+  {
+    method: 'POST',
+    path: '/api/approval-workflows',
+    handler: ApprovalWorkflowController.createApprovalWorkflow,
+    options: {
+      auth: 'super_admin',
+      description: 'Create a new approval workflow',
+      tags: ['api', 'approval-workflows'],
+    },
+  },
+  {
+    method: 'GET',
+    path: '/api/approval-workflows',
+    handler: ApprovalWorkflowController.getAllApprovalWorkflows,
+    options: {
+      auth: 'manager_hr',
+      description: 'Get all approval workflows',
+      tags: ['api', 'approval-workflows'],
+    },
+  },
+  {
+    method: 'GET',
+    path: '/api/approval-workflows/{id}',
+    handler: ApprovalWorkflowController.getApprovalWorkflowById,
+    options: {
+      auth: 'manager_hr',
+      description: 'Get approval workflow by ID',
+      tags: ['api', 'approval-workflows'],
+    },
+  },
+  {
+    method: 'PUT',
+    path: '/api/approval-workflows/{id}',
+    handler: ApprovalWorkflowController.updateApprovalWorkflow,
+    options: {
+      auth: 'super_admin',
+      description: 'Update approval workflow',
+      tags: ['api', 'approval-workflows'],
+    },
+  },
+  {
+    method: 'DELETE',
+    path: '/api/approval-workflows/{id}',
+    handler: ApprovalWorkflowController.deleteApprovalWorkflow,
+    options: {
+      auth: 'super_admin',
+      description: 'Delete approval workflow',
+      tags: ['api', 'approval-workflows'],
+    },
+  },
+];
+
+export default approvalWorkflowRoutes;

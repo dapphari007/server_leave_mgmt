@@ -1,0 +1,383 @@
+2025-05-02T17:03:51.188Z [error]: Error starting server: password authentication failed for user "postgres"
+2025-05-02T17:04:28.212Z [error]: Error starting server: Column "applicableGender" of Entity "LeaveType" is defined as enum, but missing "enum" or "enumName" properties.
+2025-05-02T17:05:22.138Z [error]: Error starting server: Column "applicableGender" of Entity "LeaveType" is defined as enum, but missing "enum" or "enumName" properties.
+2025-05-02T17:08:18.376Z [error]: Error starting server: Column "applicableGender" of Entity "LeaveType" is defined as enum, but missing "enum" or "enumName" properties.
+2025-05-02T17:12:28.084Z [error]: Error starting server: Column "applicableGender" of Entity "LeaveType" is defined as enum, but missing "enum" or "enumName" properties.
+2025-05-02T17:16:24.152Z [error]: Error starting server: Cannot read properties of undefined (reading 'map')
+2025-05-02T17:18:35.181Z [error]: Error starting server: Cannot read properties of undefined (reading 'map')
+2025-05-02T17:18:50.842Z [error]: Error starting server: Cannot read properties of undefined (reading 'map')
+2025-05-02T17:48:06.408Z [error]: Error starting server: Cannot read properties of undefined (reading 'map')
+2025-05-02T17:55:24.426Z [error]: Error starting server: Cannot read properties of undefined (reading 'map')
+2025-05-02T17:56:51.403Z [error]: Error starting server: Cannot read properties of undefined (reading 'map')
+2025-05-02T17:59:50.855Z [error]: Error starting server: Column "applicableGender" of Entity "LeaveType" is defined as enum, but missing "enum" or "enumName" properties.
+2025-05-02T18:00:31.356Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
+2025-05-02T18:09:18.336Z [error]: Response: GET /api/auth/profile - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Bad HTTP authentication header format","attributes":{"error":"Bad HTTP authentication header format"}}
+2025-05-02T18:10:12.443Z [error]: Response: POST /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:10:12.444Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:10:12.448Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:18:10.532Z [error]: Error creating manager: No metadata for "User" was found.
+2025-05-02T18:19:51.116Z [error]: Response: POST /api/users - Status: 500 - Time: 4ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:19:51.124Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:19:51.131Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:22:30.187Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 65ms - Error: {"message":"Invalid email or password"}
+2025-05-02T18:23:16.763Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 51ms - Error: {"message":"Invalid email or password"}
+2025-05-02T18:23:22.908Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 3ms - Error: {"message":"Invalid email or password"}
+2025-05-02T18:24:45.469Z [error]: Error creating super admin: No metadata for "User" was found.
+2025-05-02T18:33:52.206Z [error]: Response: POST /api/users - Status: 500 - Time: 9ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:33:52.212Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:33:52.221Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:36:21.444Z [error]: Response: POST /api/users - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Bad HTTP authentication header format","attributes":{"error":"Bad HTTP authentication header format"}}
+2025-05-02T18:36:56.593Z [error]: Response: POST /api/users - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:37:53.591Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 84ms - Error: {"message":"Invalid email or password"}
+2025-05-02T18:38:17.598Z [error]: Response: GET /api/users - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:00.713Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 84ms - Error: {"message":"Invalid email or password"}
+2025-05-02T18:39:00.771Z [error]: Response: POST /api/users - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:00.826Z [error]: Response: GET /api/users - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:00.883Z [error]: Response: GET /api/users/ - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:00.931Z [error]: Response: PUT /api/users/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:00.963Z [error]: Response: DELETE /api/users/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:01.013Z [error]: Response: PUT /api/users//reset-password - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:01.079Z [error]: Response: POST /api/leave-types - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:01.119Z [error]: Response: GET /api/leave-types - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:01.152Z [error]: Response: POST /api/leave-requests - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:01.188Z [error]: Response: GET /api/leave-requests - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:01.216Z [error]: Response: PUT /api/leave-requests//status - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:01.298Z [error]: Response: GET /api/leave-balances/user/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:01.367Z [error]: Response: PUT /api/leave-balances//adjust - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:01.456Z [error]: Response: POST /api/holidays - Status: 401 - Time: 2ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:01.501Z [error]: Response: GET /api/holidays - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token signature","attributes":{"error":"Invalid token signature"}}
+2025-05-02T18:39:24.344Z [error]: Response: POST /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:24.345Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:24.346Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:24.384Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:24.385Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:24.386Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:24.406Z [error]: Response: GET /api/users/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.441Z [error]: Response: PUT /api/users/ - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.470Z [error]: Response: DELETE /api/users/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.537Z [error]: Response: PUT /api/users//reset-password - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.604Z [error]: Response: POST /api/leave-types - Status: 500 - Time: 3ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:24.605Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:24.606Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:24.701Z [error]: Response: GET /api/leave-types/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.752Z [error]: Response: PUT /api/leave-types/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.799Z [error]: Response: DELETE /api/leave-types/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:24.843Z [error]: Response: POST /api/leave-balances - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:24.844Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:24.845Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:24.899Z [error]: Response: GET /api/leave-balances - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:24.900Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:24.902Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:24.970Z [error]: Response: GET /api/leave-balances/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.086Z [error]: Response: PUT /api/leave-balances/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.153Z [error]: Response: DELETE /api/leave-balances/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.220Z [error]: Response: POST /api/leave-balances/bulk-create - Status: 500 - Time: 3ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.221Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.222Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:25.277Z [error]: Response: POST /api/leave-requests - Status: 400 - Time: 2ms - Error: {"message":"Leave type, start date, end date, and reason are required"}
+2025-05-02T18:39:25.358Z [error]: Response: GET /api/leave-requests - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.359Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.360Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:25.397Z [error]: Response: GET /api/leave-requests/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.496Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.497Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.498Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:25.537Z [error]: Response: PUT /api/leave-requests//status - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.589Z [error]: Response: PUT /api/leave-requests//cancel - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.671Z [error]: Response: POST /api/holidays - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.672Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.673Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:25.793Z [error]: Response: GET /api/holidays/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.823Z [error]: Response: PUT /api/holidays/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.870Z [error]: Response: DELETE /api/holidays/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:25.892Z [error]: Response: POST /api/holidays/bulk-create - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.893Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.893Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:25.946Z [error]: Response: POST /api/approval-workflows - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.947Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.948Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:25.978Z [error]: Response: GET /api/approval-workflows - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:25.979Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:25.979Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:26.019Z [error]: Response: GET /api/approval-workflows/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:26.061Z [error]: Response: PUT /api/approval-workflows/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:26.104Z [error]: Response: DELETE /api/approval-workflows/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:39:26.135Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:39:26.136Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:39:26.136Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:39:26.232Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-02T18:39:26.234Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 49ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-02T18:41:10.080Z [error]: Response: POST /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:10.082Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:10.088Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:10.123Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:10.124Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:10.125Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:10.195Z [error]: Response: GET /api/users/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.216Z [error]: Response: PUT /api/users/ - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.243Z [error]: Response: DELETE /api/users/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.326Z [error]: Response: PUT /api/users//reset-password - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.391Z [error]: Response: POST /api/leave-types - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:10.392Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:10.393Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:10.486Z [error]: Response: GET /api/leave-types/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.527Z [error]: Response: PUT /api/leave-types/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.575Z [error]: Response: DELETE /api/leave-types/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.609Z [error]: Response: POST /api/leave-balances - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:10.610Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:10.612Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:10.704Z [error]: Response: GET /api/leave-balances - Status: 500 - Time: 16ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:10.721Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:10.725Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:10.815Z [error]: Response: GET /api/leave-balances/ - Status: 404 - Time: 15ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:10.957Z [error]: Response: PUT /api/leave-balances/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.006Z [error]: Response: DELETE /api/leave-balances/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.059Z [error]: Response: POST /api/leave-balances/bulk-create - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.060Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.061Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.101Z [error]: Response: POST /api/leave-requests - Status: 400 - Time: 3ms - Error: {"message":"Leave type, start date, end date, and reason are required"}
+2025-05-02T18:41:11.177Z [error]: Response: GET /api/leave-requests - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.179Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.180Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.243Z [error]: Response: GET /api/leave-requests/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.376Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.378Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.381Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.424Z [error]: Response: PUT /api/leave-requests//status - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.486Z [error]: Response: PUT /api/leave-requests//cancel - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.503Z [error]: Response: POST /api/holidays - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.505Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.506Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.565Z [error]: Response: GET /api/holidays/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.657Z [error]: Response: PUT /api/holidays/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.720Z [error]: Response: DELETE /api/holidays/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:11.769Z [error]: Response: POST /api/holidays/bulk-create - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.770Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.771Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.837Z [error]: Response: POST /api/approval-workflows - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.838Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.839Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.908Z [error]: Response: GET /api/approval-workflows - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:11.909Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:11.910Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:11.982Z [error]: Response: GET /api/approval-workflows/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:12.020Z [error]: Response: PUT /api/approval-workflows/ - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:12.087Z [error]: Response: DELETE /api/approval-workflows/ - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-02T18:41:12.142Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 6ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-02T18:41:12.174Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-02T18:41:12.184Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\leave_mgmt_new\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-02T18:41:12.283Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-02T18:41:12.283Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 51ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-02T18:51:06.933Z [error]: Response: GET /api/auth/profile - Status: 401 - Time: 3ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token structure","attributes":{"error":"Invalid token structure"}}
+2025-05-02T18:52:43.532Z [error]: Response: POST /api/users - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Invalid token structure","attributes":{"error":"Invalid token structure"}}
+2025-05-02T20:54:57.854Z [error]: Error starting server: database "leave_management" does not exist
+2025-05-03T14:57:09.351Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T14:57:09.351Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 23ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T14:57:10.378Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T14:57:10.378Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 13ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:17:51.618Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:17:51.619Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 49ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:20:16.425Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 9ms - Error: {"message":"User not found"}
+2025-05-03T15:20:16.431Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 3ms - Error: {"message":"User not found"}
+2025-05-03T15:20:16.450Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:20:16.451Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 14ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:20:17.467Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:20:17.468Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 11ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:25:43.986Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 15ms - Error: {"message":"User not found"}
+2025-05-03T15:25:43.991Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 3ms - Error: {"message":"User not found"}
+2025-05-03T15:25:44.012Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:25:44.013Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 13ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:25:44.598Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 3ms - Error: {"message":"User not found"}
+2025-05-03T15:25:44.603Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 3ms - Error: {"message":"User not found"}
+2025-05-03T15:25:44.616Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:25:44.617Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 12ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:25:45.632Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:25:45.632Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 12ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:26:27.865Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:26:27.865Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 22ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:26:28.890Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:26:28.891Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 11ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:26:31.266Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 4ms - Error: {"message":"User not found"}
+2025-05-03T15:26:31.271Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 3ms - Error: {"message":"User not found"}
+2025-05-03T15:26:31.298Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:26:31.298Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 15ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-03T15:26:33.111Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 3ms - Error: {"message":"User not found"}
+2025-05-03T15:26:33.115Z [error]: Response: GET /api/auth/profile - Status: 404 - Time: 2ms - Error: {"message":"User not found"}
+2025-05-03T15:26:33.134Z [error]: Error in getEmployeeDashboard: QueryFailedError: column lb.leavetypeid does not exist
+2025-05-03T15:26:33.134Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 14ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-04T06:17:42.625Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
+2025-05-04T06:20:02.914Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
