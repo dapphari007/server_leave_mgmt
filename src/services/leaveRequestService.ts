@@ -1,4 +1,4 @@
-import { AppDataSource } from "../config/database";
+import { AppDataSource, ensureDatabaseConnection } from "../config/database";
 import {
   LeaveRequest,
   LeaveRequestStatus,
@@ -521,6 +521,9 @@ export const getApprovalWorkflow = async (
   numberOfDays: number
 ): Promise<ApprovalWorkflow> => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const approvalWorkflowRepository =
       AppDataSource.getRepository(ApprovalWorkflow);
 
@@ -539,9 +542,20 @@ export const getApprovalWorkflow = async (
 
     // Parse the approvalLevels JSON string
     if (typeof approvalWorkflow.approvalLevels === "string") {
-      approvalWorkflow.approvalLevels = JSON.parse(
-        approvalWorkflow.approvalLevels
-      );
+      try {
+        approvalWorkflow.approvalLevels = JSON.parse(
+          approvalWorkflow.approvalLevels
+        );
+        // Handle the case where it might be double-stringified
+        if (typeof approvalWorkflow.approvalLevels === "string") {
+          approvalWorkflow.approvalLevels = JSON.parse(
+            approvalWorkflow.approvalLevels
+          );
+        }
+      } catch (error) {
+        logger.error(`Error parsing approvalLevels: ${error}`);
+        throw new Error("Error parsing approval workflow levels");
+      }
     }
 
     return approvalWorkflow;

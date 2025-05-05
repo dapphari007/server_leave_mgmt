@@ -12,6 +12,12 @@ import logger from "../utils/logger";
 
 export const register = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in register");
+    }
+
     const {
       firstName,
       lastName,
@@ -89,6 +95,12 @@ export const register = async (request: Request, h: ResponseToolkit) => {
 
 export const login = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in login");
+    }
+
     const { email, password } = request.payload as any;
 
     // Validate input
@@ -146,6 +158,12 @@ export const login = async (request: Request, h: ResponseToolkit) => {
 
 export const getProfile = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in getProfile");
+    }
+
     const userId = request.auth.credentials.id;
 
     // Find user by ID
@@ -178,6 +196,12 @@ export const getProfile = async (request: Request, h: ResponseToolkit) => {
 
 export const updateProfile = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in updateProfile");
+    }
+
     const userId = request.auth.credentials.id;
     const { firstName, lastName, phoneNumber, address } =
       request.payload as any;
@@ -222,6 +246,12 @@ export const updateProfile = async (request: Request, h: ResponseToolkit) => {
 
 export const changePassword = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in changePassword");
+    }
+
     const userId = request.auth.credentials.id;
     const { currentPassword, newPassword } = request.payload as any;
 

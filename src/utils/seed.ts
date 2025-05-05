@@ -255,8 +255,21 @@ const seedApprovalWorkflows = async (): Promise<void> => {
 
   for (const workflowData of workflows) {
     const workflow = new ApprovalWorkflow();
-    // Use the approvalLevels directly as a JSON object, not as a string
-    Object.assign(workflow, workflowData);
+
+    // Set basic properties
+    workflow.name = workflowData.name;
+    workflow.minDays = workflowData.minDays;
+    workflow.maxDays = workflowData.maxDays;
+    workflow.isActive = true;
+
+    // Ensure approvalLevels is stored as a proper JSON object, not a string
+    workflow.approvalLevels = Array.isArray(workflowData.approvalLevels)
+      ? workflowData.approvalLevels.map((level) => ({
+          level: level.level,
+          roles: Array.isArray(level.roles) ? level.roles : [level.roles],
+        }))
+      : workflowData.approvalLevels;
+
     await approvalWorkflowRepository.save(workflow);
   }
 

@@ -7,13 +7,10 @@
     "dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
     "typeorm": "typeorm-ts-node-commonjs",
-    "seed": "ts-node src/utils/seed.ts",
-    "seed:sample-users": "ts-node src/scripts/sample-users-fixed.ts",
-    "reset-superadmin": "ts-node src/scripts/reset-superadmin.ts",
-    "check-superadmin": "ts-node src/scripts/check-superadmin.ts",
     "migration:generate": "npm run typeorm migration:generate -- -n",
     "migration:run": "npm run typeorm migration:run",
     "migration:revert": "npm run typeorm migration:revert",
+    "ensure:default-users": "ts-node -e \"require('./src/utils/ensure-default-users').ensureDefaultUsers().then(() => console.log('Default users check completed')).catch((err) => { console.error(err); process.exit(1); })\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

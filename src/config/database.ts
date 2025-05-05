@@ -53,13 +53,40 @@ export const initializeDatabase = async (): Promise<void> => {
     for (const entity of entities) {
       const exists = await tableExists(entity.tableName);
       if (!exists) {
-        logger.warn(`* Table ${entity.tableName} does not exist. Run migrations to create it.`);
+        logger.warn(
+          `* Table ${entity.tableName} does not exist. Run migrations to create it.`
+        );
       }
     }
-    
+
     logger.info("* Database check completed, preserving all existing data");
   } catch (error) {
     logger.error("Error during database initialization:", error);
+    throw error;
+  }
+};
+
+// Function to ensure database connection is established
+export const ensureDatabaseConnection = async (): Promise<void> => {
+  try {
+    // Check if connection is initialized and connected
+    if (!AppDataSource.isInitialized) {
+      logger.warn(
+        "Database connection not initialized, attempting to initialize..."
+      );
+      await initializeDatabase();
+      return;
+    }
+
+    // Test the connection with a simple query
+    try {
+      await AppDataSource.query("SELECT 1");
+    } catch (error) {
+      logger.warn("Database connection test failed, reconnecting...");
+      await initializeDatabase();
+    }
+  } catch (error) {
+    logger.error("Failed to ensure database connection:", error);
     throw error;
   }
 };

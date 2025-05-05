@@ -15,6 +15,7 @@ export enum LeaveRequestStatus {
   APPROVED = "approved",
   REJECTED = "rejected",
   CANCELLED = "cancelled",
+  PARTIALLY_APPROVED = "partially_approved",
 }
 
 export enum LeaveRequestType {
@@ -84,6 +85,20 @@ export class LeaveRequest {
 
   @Column({ nullable: true })
   approvedAt: Date;
+
+  @Column({ type: "jsonb", nullable: true })
+  metadata: {
+    currentApprovalLevel?: number;
+    requiredApprovalLevels?: number[];
+    isFullyApproved?: boolean;
+    approvalHistory?: {
+      level: number;
+      approverId: string;
+      approverName: string;
+      approvedAt: Date;
+      comments?: string;
+    }[];
+  };
 
   @CreateDateColumn()
   createdAt: Date;

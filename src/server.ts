@@ -2,17 +2,37 @@ import Hapi from "@hapi/hapi";
 import Joi from "joi";
 import { registerPlugins } from "./plugins";
 import { registerRoutes } from "./routes";
-import { initializeDatabase } from "./config/database";
+import {
+  initializeDatabase,
+  ensureDatabaseConnection,
+  AppDataSource,
+} from "./config/database";
 import config from "./config/config";
 import logger from "./utils/logger";
-import { ensureSuperAdmin } from "./utils/ensure-superadmin";
-import { ensureInitialData } from "./utils/ensure-initial-data";
+import { ensureDefaultUsers } from "./utils/ensure-default-users";
+import { createDefaultLeaveTypes } from "./scripts/createDefaultLeaveTypes";
+import { createHolidays2025 } from "./scripts/createHolidays2025";
 
 const init = async () => {
   try {
-    // Initialize database connection
-    await initializeDatabase();
-    logger.info("Database connected successfully");
+    // Initialize database connection with retry mechanism
+    let retries = 5;
+    while (retries > 0) {
+      try {
+        await initializeDatabase();
+        logger.info("Database connected successfully");
+        break;
+      } catch (error) {
+        retries--;
+        if (retries === 0) {
+          throw error;
+        }
+        logger.warn(
+          `Database connection failed, retrying... (${retries} attempts left)`
+        );
+        await new Promise((resolve) => setTimeout(resolve, 3000)); // Wait 3 seconds before retrying
+      }
+    }
 
     // Create Hapi server
     const server = Hapi.server({
@@ -53,13 +73,45 @@ const init = async () => {
     // Register routes
     registerRoutes(server);
 
-    // Ensure superadmin exists with correct credentials
-    await ensureSuperAdmin();
-    logger.info("Superadmin check completed");
-    
-    // Ensure initial data exists (HR, managers, leave types, etc.)
-    await ensureInitialData();
-    logger.info("Initial data check completed");
+    // Ensure default users exist (including superadmin, managers, HR, and employees)
+    await ensureDefaultUsers();
+    console.log("Default users check completed");
+
+    // Create default leave types
+    try {
+      await createDefaultLeaveTypes();
+      console.log("Default leave types check completed");
+    } catch (error) {
+      logger.error("Error creating default leave types:", error);
+    }
+
+    // Create holidays for 2025
+    try {
+      await createHolidays2025();
+      console.log("2025 holidays check completed");
+    } catch (error) {
+      logger.error("Error creating 2025 holidays:", error);
+    }
+
+    // Set up database connection health check
+    const dbHealthCheck = setInterval(async () => {
+      try {
+        if (!AppDataSource.isInitialized) {
+          logger.warn("Database connection lost, attempting to reconnect...");
+          await ensureDatabaseConnection();
+        } else {
+          // Test the connection with a simple query
+          try {
+            await AppDataSource.query("SELECT 1");
+          } catch (error) {
+            logger.warn("Database connection test failed, reconnecting...");
+            await ensureDatabaseConnection();
+          }
+        }
+      } catch (error) {
+        logger.error("Database health check failed:", error);
+      }
+    }, 30000); // Check every 30 seconds
 
     // Start server
     await server.start();
@@ -68,7 +120,19 @@ const init = async () => {
     // Handle unhandled rejections
     process.on("unhandledRejection", (err) => {
       logger.error("Unhandled rejection:", err);
+      clearInterval(dbHealthCheck);
       process.exit(1);
+    });
+
+    // Handle graceful shutdown
+    process.on("SIGINT", async () => {
+      logger.info("Shutting down server...");
+      await server.stop();
+      clearInterval(dbHealthCheck);
+      if (AppDataSource.isInitialized) {
+        await AppDataSource.destroy();
+      }
+      process.exit(0);
     });
 
     return server;

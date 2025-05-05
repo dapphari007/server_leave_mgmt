@@ -80,6 +80,12 @@ export class User {
   @Column({ nullable: true })
   managerId: string;
 
+  @Column({ nullable: true, length: 100 })
+  department: string;
+
+  @Column({ nullable: true, length: 100 })
+  position: string;
+
   @Column({ default: true })
   isActive: boolean;
 

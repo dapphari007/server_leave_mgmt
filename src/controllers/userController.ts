@@ -6,6 +6,12 @@ import logger from "../utils/logger";
 
 export const createUser = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in createUser");
+    }
+
     const {
       firstName,
       lastName,
@@ -17,6 +23,8 @@ export const createUser = async (request: Request, h: ResponseToolkit) => {
       level,
       gender,
       managerId,
+      department,
+      position,
     } = request.payload as any;
 
     // Validate input
@@ -95,6 +103,8 @@ export const createUser = async (request: Request, h: ResponseToolkit) => {
     user.level = level || UserLevel.LEVEL_1;
     user.gender = gender || null;
     user.managerId = managerId || null;
+    user.department = department || null;
+    user.position = position || null;
 
     // Save user to database
     const savedUser = await userRepository.save(user);
@@ -118,6 +128,12 @@ export const createUser = async (request: Request, h: ResponseToolkit) => {
 
 export const getAllUsers = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in getAllUsers");
+    }
+
     const { role, isActive } = request.query as any;
 
     // Build query
@@ -162,6 +178,12 @@ export const getAllUsers = async (request: Request, h: ResponseToolkit) => {
 
 export const getUserById = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in getUserById");
+    }
+
     const { id } = request.params;
 
     // Get user
@@ -190,6 +212,12 @@ export const getUserById = async (request: Request, h: ResponseToolkit) => {
 
 export const updateUser = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in updateUser");
+    }
+
     const { id } = request.params;
     const {
       firstName,
@@ -200,6 +228,8 @@ export const updateUser = async (request: Request, h: ResponseToolkit) => {
       level,
       isActive,
       managerId,
+      department,
+      position,
     } = request.payload as any;
 
     // Get user
@@ -254,6 +284,8 @@ export const updateUser = async (request: Request, h: ResponseToolkit) => {
     if (level) user.level = level;
     if (isActive !== undefined) user.isActive = isActive;
     if (managerId !== undefined) user.managerId = managerId;
+    if (department !== undefined) user.department = department;
+    if (position !== undefined) user.position = position;
 
     // Save updated user
     const updatedUser = await userRepository.save(user);
@@ -277,6 +309,12 @@ export const updateUser = async (request: Request, h: ResponseToolkit) => {
 
 export const deleteUser = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in deleteUser");
+    }
+
     const { id } = request.params;
 
     // Get user
@@ -321,6 +359,12 @@ export const resetUserPassword = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in resetUserPassword");
+    }
+
     const { id } = request.params;
     const { newPassword } = request.payload as any;
 
@@ -368,6 +412,12 @@ export const resetUserPassword = async (
 
 export const deactivateUser = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in deactivateUser");
+    }
+
     const { id } = request.params;
 
     // Get user

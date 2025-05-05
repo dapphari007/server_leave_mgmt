@@ -4,6 +4,101 @@ import { ApprovalWorkflow, UserRole } from "../models";
 import logger from "../utils/logger";
 import { LessThanOrEqual, MoreThanOrEqual, Not } from "typeorm";
 
+// Default approval workflows configuration
+const DEFAULT_APPROVAL_WORKFLOWS = [
+  {
+    name: "Short Leave (1-2 days)",
+    minDays: 0.5,
+    maxDays: 2,
+    approvalLevels: [
+      {
+        level: 2, // L-2 (Team Lead)
+        roles: [UserRole.TEAM_LEAD],
+      },
+    ],
+  },
+  {
+    name: "Medium Leave (3-5 days)",
+    minDays: 3,
+    maxDays: 5,
+    approvalLevels: [
+      {
+        level: 2, // L-2 (Team Lead)
+        roles: [UserRole.TEAM_LEAD],
+      },
+      {
+        level: 3, // L-3 (Manager)
+        roles: [UserRole.MANAGER],
+      },
+    ],
+  },
+  {
+    name: "Long Leave (6-10 days)",
+    minDays: 6,
+    maxDays: 10,
+    approvalLevels: [
+      {
+        level: 2, // L-2 (Team Lead)
+        roles: [UserRole.TEAM_LEAD],
+      },
+      {
+        level: 3, // L-3 (Manager)
+        roles: [UserRole.MANAGER],
+      },
+      {
+        level: 4, // L-4 (HR)
+        roles: [UserRole.HR],
+      },
+    ],
+  },
+  {
+    name: "Extended Leave (11-20 days)",
+    minDays: 11,
+    maxDays: 20,
+    approvalLevels: [
+      {
+        level: 2, // L-2 (Team Lead)
+        roles: [UserRole.TEAM_LEAD],
+      },
+      {
+        level: 3, // L-3 (Manager)
+        roles: [UserRole.MANAGER],
+      },
+      {
+        level: 4, // L-4 (HR)
+        roles: [UserRole.HR],
+      },
+      {
+        level: 5, // L-5 (Super Admin)
+        roles: [UserRole.SUPER_ADMIN],
+      },
+    ],
+  },
+  {
+    name: "Long-Term Leave (21+ days)",
+    minDays: 21,
+    maxDays: 365,
+    approvalLevels: [
+      {
+        level: 2, // L-2 (Team Lead)
+        roles: [UserRole.TEAM_LEAD],
+      },
+      {
+        level: 3, // L-3 (Manager)
+        roles: [UserRole.MANAGER],
+      },
+      {
+        level: 4, // L-4 (HR)
+        roles: [UserRole.HR],
+      },
+      {
+        level: 5, // L-5 (Super Admin)
+        roles: [UserRole.SUPER_ADMIN],
+      },
+    ],
+  },
+];
+
 export const createApprovalWorkflow = async (
   request: Request,
   h: ResponseToolkit
@@ -92,7 +187,16 @@ export const createApprovalWorkflow = async (
     approvalWorkflow.name = name;
     approvalWorkflow.minDays = minDays;
     approvalWorkflow.maxDays = maxDays;
-    approvalWorkflow.approvalLevels = approvalLevels;
+
+    // Ensure approvalLevels is stored as a proper JSON object, not a string
+    // This prevents issues with double-stringification
+    approvalWorkflow.approvalLevels = Array.isArray(approvalLevels)
+      ? approvalLevels.map((level) => ({
+          level: level.level,
+          roles: Array.isArray(level.roles) ? level.roles : [level.roles],
+        }))
+      : approvalLevels;
+
     approvalWorkflow.isActive = isActive !== undefined ? isActive : true;
 
     // Save approval workflow to database
@@ -285,7 +389,17 @@ export const updateApprovalWorkflow = async (
     if (name) approvalWorkflow.name = name;
     if (minDays !== undefined) approvalWorkflow.minDays = minDays;
     if (maxDays !== undefined) approvalWorkflow.maxDays = maxDays;
-    if (approvalLevels) approvalWorkflow.approvalLevels = approvalLevels;
+
+    // Ensure approvalLevels is stored as a proper JSON object, not a string
+    if (approvalLevels) {
+      approvalWorkflow.approvalLevels = Array.isArray(approvalLevels)
+        ? approvalLevels.map((level) => ({
+            level: level.level,
+            roles: Array.isArray(level.roles) ? level.roles : [level.roles],
+          }))
+        : approvalLevels;
+    }
+
     if (isActive !== undefined) approvalWorkflow.isActive = isActive;
 
     // Save updated approval workflow
@@ -340,6 +454,59 @@ export const deleteApprovalWorkflow = async (
     return h
       .response({
         message: "An error occurred while deleting the approval workflow",
+      })
+      .code(500);
+  }
+};
+
+/**
+ * Initialize default approval workflows with team lead at L-2 and multi-level approvals
+ * based on leave days
+ */
+export const initializeDefaultApprovalWorkflows = async (
+  request: Request,
+  h: ResponseToolkit
+) => {
+  try {
+    const approvalWorkflowRepository =
+      AppDataSource.getRepository(ApprovalWorkflow);
+
+    // Check if there are existing workflows
+    const existingWorkflows = await approvalWorkflowRepository.find();
+
+    // If there are existing workflows, delete them first
+    if (existingWorkflows.length > 0) {
+      await approvalWorkflowRepository.remove(existingWorkflows);
+    }
+
+    // Create default approval workflows
+    const createdWorkflows = [];
+
+    for (const workflowConfig of DEFAULT_APPROVAL_WORKFLOWS) {
+      const workflow = new ApprovalWorkflow();
+      workflow.name = workflowConfig.name;
+      workflow.minDays = workflowConfig.minDays;
+      workflow.maxDays = workflowConfig.maxDays;
+      workflow.approvalLevels = workflowConfig.approvalLevels;
+      workflow.isActive = true;
+
+      const savedWorkflow = await approvalWorkflowRepository.save(workflow);
+      createdWorkflows.push(savedWorkflow);
+    }
+
+    return h
+      .response({
+        message: "Default approval workflows initialized successfully",
+        workflows: createdWorkflows,
+      })
+      .code(200);
+  } catch (error) {
+    logger.error(`Error in initializeDefaultApprovalWorkflows: ${error}`);
+    return h
+      .response({
+        message:
+          "An error occurred while initializing default approval workflows",
+        error: error.message,
       })
       .code(500);
   }

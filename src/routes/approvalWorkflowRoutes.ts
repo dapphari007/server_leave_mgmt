@@ -1,55 +1,66 @@
-import { ServerRoute } from '@hapi/hapi';
-import * as ApprovalWorkflowController from '../controllers/approvalWorkflowController';
+import { ServerRoute } from "@hapi/hapi";
+import * as ApprovalWorkflowController from "../controllers/approvalWorkflowController";
 
 const approvalWorkflowRoutes: ServerRoute[] = [
   {
-    method: 'POST',
-    path: '/api/approval-workflows',
+    method: "POST",
+    path: "/api/approval-workflows",
     handler: ApprovalWorkflowController.createApprovalWorkflow,
     options: {
-      auth: 'super_admin',
-      description: 'Create a new approval workflow',
-      tags: ['api', 'approval-workflows'],
+      auth: "super_admin",
+      description: "Create a new approval workflow",
+      tags: ["api", "approval-workflows"],
     },
   },
   {
-    method: 'GET',
-    path: '/api/approval-workflows',
+    method: "GET",
+    path: "/api/approval-workflows",
     handler: ApprovalWorkflowController.getAllApprovalWorkflows,
     options: {
-      auth: 'manager_hr',
-      description: 'Get all approval workflows',
-      tags: ['api', 'approval-workflows'],
+      auth: "manager_hr",
+      description: "Get all approval workflows",
+      tags: ["api", "approval-workflows"],
     },
   },
   {
-    method: 'GET',
-    path: '/api/approval-workflows/{id}',
+    method: "GET",
+    path: "/api/approval-workflows/{id}",
     handler: ApprovalWorkflowController.getApprovalWorkflowById,
     options: {
-      auth: 'manager_hr',
-      description: 'Get approval workflow by ID',
-      tags: ['api', 'approval-workflows'],
+      auth: "manager_hr",
+      description: "Get approval workflow by ID",
+      tags: ["api", "approval-workflows"],
     },
   },
   {
-    method: 'PUT',
-    path: '/api/approval-workflows/{id}',
+    method: "PUT",
+    path: "/api/approval-workflows/{id}",
     handler: ApprovalWorkflowController.updateApprovalWorkflow,
     options: {
-      auth: 'super_admin',
-      description: 'Update approval workflow',
-      tags: ['api', 'approval-workflows'],
+      auth: "super_admin",
+      description: "Update approval workflow",
+      tags: ["api", "approval-workflows"],
     },
   },
   {
-    method: 'DELETE',
-    path: '/api/approval-workflows/{id}',
+    method: "DELETE",
+    path: "/api/approval-workflows/{id}",
     handler: ApprovalWorkflowController.deleteApprovalWorkflow,
     options: {
-      auth: 'super_admin',
-      description: 'Delete approval workflow',
-      tags: ['api', 'approval-workflows'],
+      auth: "super_admin",
+      description: "Delete approval workflow",
+      tags: ["api", "approval-workflows"],
+    },
+  },
+  {
+    method: "POST",
+    path: "/api/approval-workflows/initialize-defaults",
+    handler: ApprovalWorkflowController.initializeDefaultApprovalWorkflows,
+    options: {
+      auth: "super_admin",
+      description:
+        "Initialize default approval workflows with team lead at L-2",
+      tags: ["api", "approval-workflows"],
     },
   },
 ];

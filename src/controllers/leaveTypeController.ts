@@ -266,3 +266,85 @@ export const deleteLeaveType = async (request: Request, h: ResponseToolkit) => {
       .code(500);
   }
 };
+
+export const activateLeaveType = async (
+  request: Request,
+  h: ResponseToolkit
+) => {
+  try {
+    const { id } = request.params;
+
+    // Get leave type
+    const leaveTypeRepository = AppDataSource.getRepository(LeaveType);
+    const leaveType = await leaveTypeRepository.findOne({ where: { id } });
+
+    if (!leaveType) {
+      return h.response({ message: "Leave type not found" }).code(404);
+    }
+
+    // Check if already active
+    if (leaveType.isActive) {
+      return h.response({ message: "Leave type is already active" }).code(400);
+    }
+
+    // Activate leave type
+    leaveType.isActive = true;
+    const updatedLeaveType = await leaveTypeRepository.save(leaveType);
+
+    return h
+      .response({
+        message: "Leave type activated successfully",
+        leaveType: updatedLeaveType,
+      })
+      .code(200);
+  } catch (error) {
+    logger.error(`Error in activateLeaveType: ${error}`);
+    return h
+      .response({
+        message: "An error occurred while activating the leave type",
+      })
+      .code(500);
+  }
+};
+
+export const deactivateLeaveType = async (
+  request: Request,
+  h: ResponseToolkit
+) => {
+  try {
+    const { id } = request.params;
+
+    // Get leave type
+    const leaveTypeRepository = AppDataSource.getRepository(LeaveType);
+    const leaveType = await leaveTypeRepository.findOne({ where: { id } });
+
+    if (!leaveType) {
+      return h.response({ message: "Leave type not found" }).code(404);
+    }
+
+    // Check if already inactive
+    if (!leaveType.isActive) {
+      return h
+        .response({ message: "Leave type is already inactive" })
+        .code(400);
+    }
+
+    // Deactivate leave type
+    leaveType.isActive = false;
+    const updatedLeaveType = await leaveTypeRepository.save(leaveType);
+
+    return h
+      .response({
+        message: "Leave type deactivated successfully",
+        leaveType: updatedLeaveType,
+      })
+      .code(200);
+  } catch (error) {
+    logger.error(`Error in deactivateLeaveType: ${error}`);
+    return h
+      .response({
+        message: "An error occurred while deactivating the leave type",
+      })
+      .code(500);
+  }
+};

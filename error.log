@@ -119,3 +119,372 @@
 2025-05-05T07:54:24.585Z [error]: Response: PUT /api/leave-requests/3e5015a1-c017-44c7-8552-cbcea9f24558/status - Status: 500 - Time: 65ms - Error: {"message":"An error occurred while updating the leave request status"}
 2025-05-05T08:05:57.382Z [error]: Error: approvalLevels is not an array: "[{\"level\":1,\"roles\":[\"manager\"]}]"
 2025-05-05T08:05:57.384Z [error]: Response: PUT /api/leave-requests/3e5015a1-c017-44c7-8552-cbcea9f24558/status - Status: 500 - Time: 41ms - Error: {"message":"An error occurred while processing approval workflow"}
+2025-05-05T13:27:37.064Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 131ms - Error: {"message":"Invalid email or password"}
+2025-05-05T13:28:19.722Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-05T13:28:19.724Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-05T13:28:19.730Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-05T13:28:20.736Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-05T13:28:20.737Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-05T13:28:20.738Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-05T13:28:27.205Z [error]: Error: approvalLevels is not an array: "[{\"level\":1,\"roles\":[\"manager\"]}]"
+2025-05-05T13:28:27.206Z [error]: Response: PUT /api/leave-requests/3e5015a1-c017-44c7-8552-cbcea9f24558/status - Status: 500 - Time: 11ms - Error: {"message":"An error occurred while processing approval workflow"}
+2025-05-05T13:29:04.650Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 120ms - Error: {"message":"Invalid email or password"}
+2025-05-05T13:29:16.731Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 109ms - Error: {"message":"Invalid email or password"}
+2025-05-05T13:33:31.521Z [error]: Error ensuring super admin exists: column User.department does not exist
+2025-05-05T13:33:42.130Z [error]: Error in getAllUsers: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:42.131Z [error]: Response: GET /api/users - Status: 500 - Time: 49ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T13:33:43.142Z [error]: Error in getAllUsers: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:43.143Z [error]: Response: GET /api/users - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T13:33:44.071Z [error]: Error in getAllUsers: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:44.071Z [error]: Response: GET /api/users - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T13:33:44.117Z [error]: Error in getUserById: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:44.118Z [error]: Response: GET /api/users/278c71d7-1ca3-47de-9392-166031059146 - Status: 500 - Time: 50ms - Error: {"message":"An error occurred while fetching the user"}
+2025-05-05T13:33:45.091Z [error]: Error in getAllUsers: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:45.091Z [error]: Response: GET /api/users - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T13:33:45.137Z [error]: Error in getUserById: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:45.137Z [error]: Response: GET /api/users/278c71d7-1ca3-47de-9392-166031059146 - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while fetching the user"}
+2025-05-05T13:33:47.918Z [error]: Error in getProfile: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:47.920Z [error]: Response: GET /api/auth/profile - Status: 500 - Time: 9ms - Error: {"message":"An error occurred while fetching the user profile"}
+2025-05-05T13:33:47.926Z [error]: Error in getProfile: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:47.926Z [error]: Response: GET /api/auth/profile - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching the user profile"}
+2025-05-05T13:33:47.945Z [error]: Error in getUserById: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:47.946Z [error]: Response: GET /api/users/278c71d7-1ca3-47de-9392-166031059146 - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while fetching the user"}
+2025-05-05T13:33:47.949Z [error]: Error in getAllUsers: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:47.949Z [error]: Response: GET /api/users - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T13:33:48.962Z [error]: Error in getUserById: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:48.962Z [error]: Response: GET /api/users/278c71d7-1ca3-47de-9392-166031059146 - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching the user"}
+2025-05-05T13:33:48.963Z [error]: Error in getAllUsers: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:48.964Z [error]: Response: GET /api/users - Status: 500 - Time: 4ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T13:33:51.319Z [error]: Error in login: QueryFailedError: column User.department does not exist
+2025-05-05T13:33:51.319Z [error]: Response: POST /api/auth/login - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while logging in"}
+2025-05-05T13:36:33.941Z [error]: Error ensuring super admin exists: column User.department does not exist
+2025-05-05T14:09:37.177Z [error]: Error in getAllLeaveBalances: TypeORMError: Driver not Connected
+2025-05-05T14:09:37.180Z [error]: Response: GET /api/leave-balances - Status: 500 - Time: 15ms - Error: {"message":"An error occurred while fetching leave balances"}
+2025-05-05T14:09:39.363Z [error]: Error in getAllLeaveBalances: TypeORMError: Driver not Connected
+2025-05-05T14:09:39.364Z [error]: Response: GET /api/leave-balances - Status: 500 - Time: 6ms - Error: {"message":"An error occurred while fetching leave balances"}
+2025-05-05T14:09:46.992Z [error]: Error in getAllLeaveTypes: TypeORMError: Driver not Connected
+2025-05-05T14:09:46.993Z [error]: Response: GET /api/leave-types - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching leave types"}
+2025-05-05T14:09:48.011Z [error]: Error in getAllLeaveTypes: TypeORMError: Driver not Connected
+2025-05-05T14:09:48.011Z [error]: Response: GET /api/leave-types - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while fetching leave types"}
+2025-05-05T14:09:51.372Z [error]: Error in getAllHolidays: TypeORMError: Driver not Connected
+2025-05-05T14:09:51.372Z [error]: Response: GET /api/holidays - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while fetching holidays"}
+2025-05-05T14:09:52.380Z [error]: Error in getAllHolidays: TypeORMError: Driver not Connected
+2025-05-05T14:09:52.380Z [error]: Response: GET /api/holidays - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while fetching holidays"}
+2025-05-05T14:10:14.560Z [error]: Error in getAllUsers: TypeORMError: Driver not Connected
+2025-05-05T14:10:14.561Z [error]: Response: GET /api/users - Status: 500 - Time: 4ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T14:10:15.569Z [error]: Error in getAllUsers: TypeORMError: Driver not Connected
+2025-05-05T14:10:15.570Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T14:10:18.049Z [error]: Error in getAllUsers: TypeORMError: Driver not Connected
+2025-05-05T14:10:18.050Z [error]: Response: GET /api/users - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T14:10:18.053Z [error]: Error in getAllLeaveBalances: TypeORMError: Driver not Connected
+2025-05-05T14:10:18.054Z [error]: Response: GET /api/leave-balances - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching leave balances"}
+2025-05-05T14:10:18.058Z [error]: Error in getAllUsers: TypeORMError: Driver not Connected
+2025-05-05T14:10:18.059Z [error]: Response: GET /api/users - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T14:10:19.073Z [error]: Error in getAllLeaveBalances: TypeORMError: Driver not Connected
+2025-05-05T14:10:19.074Z [error]: Response: GET /api/leave-balances - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching leave balances"}
+2025-05-05T14:10:43.253Z [error]: Error in getProfile: TypeORMError: Driver not Connected
+2025-05-05T14:10:43.255Z [error]: Response: GET /api/auth/profile - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching the user profile"}
+2025-05-05T14:10:43.260Z [error]: Error in getProfile: TypeORMError: Driver not Connected
+2025-05-05T14:10:43.260Z [error]: Response: GET /api/auth/profile - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching the user profile"}
+2025-05-05T14:10:43.275Z [error]: Error in getAllUsers: TypeORMError: Driver not Connected
+2025-05-05T14:10:43.277Z [error]: Response: GET /api/users - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T14:10:43.280Z [error]: Error in getAllUsers: TypeORMError: Driver not Connected
+2025-05-05T14:10:43.281Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while fetching users"}
+2025-05-05T14:10:46.167Z [error]: Error in login: TypeORMError: Driver not Connected
+2025-05-05T14:10:46.167Z [error]: Response: POST /api/auth/login - Status: 500 - Time: 3ms - Error: {"message":"An error occurred while logging in"}
+2025-05-05T14:10:56.765Z [error]: Error in login: TypeORMError: Driver not Connected
+2025-05-05T14:10:56.765Z [error]: Response: POST /api/auth/login - Status: 500 - Time: 2ms - Error: {"message":"An error occurred while logging in"}
+2025-05-05T14:13:24.884Z [error]: Error in login: TypeORMError: Driver not Connected
+2025-05-05T14:13:24.885Z [error]: Response: POST /api/auth/login - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while logging in"}
+2025-05-05T14:14:05.141Z [error]: Error in login: TypeORMError: Driver not Connected
+2025-05-05T14:14:05.143Z [error]: Response: POST /api/auth/login - Status: 500 - Time: 8ms - Error: {"message":"An error occurred while logging in"}
+2025-05-05T14:18:01.821Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:01.960Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.084Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.207Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.323Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.437Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.559Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.686Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.805Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:02.926Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.057Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.180Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.305Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.416Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.576Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.701Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.823Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:03.939Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.057Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.165Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.277Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.384Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.495Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.603Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.717Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.826Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:04.938Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:05.044Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:05.155Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:05.297Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:05.419Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:05.534Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:05.877Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.005Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.116Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.225Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.339Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.462Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.639Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.815Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:06.940Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.065Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.173Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.300Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.433Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.552Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.672Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.798Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:07.936Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.048Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.173Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.282Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.398Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.552Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.672Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.779Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:08.892Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:09.014Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:09.151Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:09.292Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:09.673Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:09.792Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:09.911Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.038Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.171Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.291Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.404Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.553Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.671Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.798Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:10.919Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:11.110Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:11.470Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:11.652Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:11.793Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:11.910Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.030Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.161Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.276Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.407Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.528Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.651Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.768Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:12.888Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.009Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.127Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.256Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.391Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.529Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.638Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.754Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.869Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:13.988Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.108Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.228Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.357Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.487Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.609Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.730Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.845Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:14.967Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.088Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.194Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.328Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.457Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.579Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.694Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.816Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:15.946Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:16.065Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:16.186Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:18:16.306Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:21:43.689Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-05T14:21:43.690Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-05T14:21:43.695Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-05T14:21:44.700Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-05T14:21:44.702Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-05T14:21:44.704Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-05T14:22:08.777Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T14:22:19.731Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 130ms - Error: {"message":"Invalid email or password"}
+2025-05-05T14:25:13.404Z [error]: Error: approvalLevels is not an array: "[{\"level\":1,\"roles\":[\"manager\"]}]"
+2025-05-05T14:25:13.405Z [error]: Response: PUT /api/leave-requests/0003212b-6b03-487f-9c7f-59a64d25d6b0/status - Status: 500 - Time: 12ms - Error: {"message":"An error occurred while processing approval workflow"}
+2025-05-05T14:25:29.827Z [error]: Error: approvalLevels is not an array: "[{\"level\":1,\"roles\":[\"manager\"]}]"
+2025-05-05T14:25:29.828Z [error]: Response: PUT /api/leave-requests/0003212b-6b03-487f-9c7f-59a64d25d6b0/status - Status: 500 - Time: 14ms - Error: {"message":"An error occurred while processing approval workflow"}
+2025-05-05T14:29:04.460Z [error]: Error in updateLeaveRequestStatus: TypeORMError: Driver not Connected
+2025-05-05T14:29:04.461Z [error]: Response: PUT /api/leave-requests/0003212b-6b03-487f-9c7f-59a64d25d6b0/status - Status: 500 - Time: 12ms - Error: {"message":"An error occurred while updating the leave request status"}
+2025-05-05T14:29:43.716Z [error]: Error in getAllLeaveTypes: TypeORMError: Driver not Connected
+2025-05-05T14:29:43.717Z [error]: Response: GET /api/leave-types - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching leave types"}
+2025-05-05T14:32:05.970Z [error]: Error in updateLeaveRequestStatus: QueryFailedError: invalid input syntax for type numeric: "0.02.0"
+2025-05-05T14:32:05.978Z [error]: Response: PUT /api/leave-requests/0003212b-6b03-487f-9c7f-59a64d25d6b0/status - Status: 500 - Time: 151ms - Error: {"message":"An error occurred while updating the leave request status"}
+2025-05-05T14:35:03.071Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-05T14:35:03.073Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-05T14:35:03.083Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-05T14:35:04.083Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-05T14:35:04.085Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-05T14:35:04.086Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-05T14:56:25.414Z [error]: Response: GET /api/holidays - Status: 401 - Time: 3ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Missing authentication"}
+2025-05-05T14:56:26.433Z [error]: Response: GET /api/holidays - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Missing authentication"}
+2025-05-05T14:57:39.441Z [error]: Response: GET /api/holidays - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Missing authentication"}
+2025-05-05T14:57:40.449Z [error]: Response: GET /api/holidays - Status: 401 - Time: 1ms - Error: {"statusCode":401,"error":"Unauthorized","message":"Missing authentication"}
+2025-05-05T15:00:46.776Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:46.911Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.035Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.166Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.275Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.396Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.523Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.647Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.776Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:47.932Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.125Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.242Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.360Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.482Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.608Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.727Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.837Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:48.948Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.058Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.179Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.395Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.517Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.625Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.740Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.849Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:49.957Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.066Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.187Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.297Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.418Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.539Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.651Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.772Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:50.896Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.032Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.149Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.267Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.390Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.521Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.722Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.864Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:51.990Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.145Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.272Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.390Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.503Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.629Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.754Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:52.879Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.002Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.137Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.265Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.393Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.501Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.623Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.748Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:53.874Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.010Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.135Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.257Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.381Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.524Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.658Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.777Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:54.908Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.039Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.171Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.301Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.425Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.591Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.717Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.842Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:55.964Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.090Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.215Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.417Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.529Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.683Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.819Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:56.929Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.056Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.163Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.268Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.390Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.508Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.613Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.723Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.843Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:57.958Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.077Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.186Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.297Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.406Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.515Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.638Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.763Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:58.884Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.023Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.150Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.276Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.391Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.517Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.635Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.763Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:00:59.892Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.056Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.162Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.292Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.413Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.719Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.842Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:01:00.957Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T15:06:20.456Z [error]: Response: OPTIONS /api/leave-types/63e394eb-2634-4ffd-b72e-161796ab153c/deactivate - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T15:08:25.314Z [error]: Response: OPTIONS /api/leave-types/63e394eb-2634-4ffd-b72e-161796ab153c/deactivate - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}

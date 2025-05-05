@@ -1,5 +1,5 @@
 import { Request, ResponseToolkit } from "@hapi/hapi";
-import { AppDataSource } from "../config/database";
+import { AppDataSource, ensureDatabaseConnection } from "../config/database";
 import {
   LeaveRequest,
   LeaveRequestStatus,
@@ -25,6 +25,9 @@ export const createLeaveRequest = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const userId = request.auth.credentials.id;
     const { leaveTypeId, startDate, endDate, requestType, reason } =
       request.payload as any;
@@ -255,6 +258,9 @@ export const getAllLeaveRequests = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const { userId, leaveTypeId, status, startDate, endDate } =
       request.query as any;
 
@@ -311,6 +317,9 @@ export const getLeaveRequestById = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const { id } = request.params;
 
     // Get leave request
@@ -344,6 +353,9 @@ export const getUserLeaveRequests = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const userId = request.auth.credentials.id;
     const { status, year } = request.query as any;
 
@@ -390,6 +402,9 @@ export const getManagerLeaveRequests = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const userId = request.auth.credentials.id;
     const userRole = request.auth.credentials.role;
     const { status } = request.query as any;
@@ -401,12 +416,12 @@ export const getManagerLeaveRequests = async (
 
     const userRepository = AppDataSource.getRepository(User);
     let managedUserIds: string[] = [];
-    
+
     // For HR and admins, get all users' leave requests
     if (userRole === UserRole.HR || userRole === UserRole.SUPER_ADMIN) {
       const allUsers = await userRepository.find();
       managedUserIds = allUsers.map((user) => user.id);
-    } 
+    }
     // For managers and team leads, get only their team members
     else {
       // Get all users managed by this manager/team lead
@@ -462,6 +477,9 @@ export const updateLeaveRequestStatus = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const { id } = request.params;
     const { status, comments } = request.payload as any;
     const approverId = request.auth.credentials.id;
@@ -471,9 +489,23 @@ export const updateLeaveRequestStatus = async (
       return h.response({ message: "Status is required" }).code(400);
     }
 
-    if (!Object.values(LeaveRequestStatus).includes(status)) {
-      return h.response({ message: "Invalid status" }).code(400);
+    // Normalize status to ensure it matches the enum values
+    const normalizedStatus = status.toLowerCase() as LeaveRequestStatus;
+
+    // Check if the status is valid
+    if (!Object.values(LeaveRequestStatus).includes(normalizedStatus)) {
+      logger.error(
+        `Invalid status: ${status}, normalized: ${normalizedStatus}`
+      );
+      return h
+        .response({
+          message: "Invalid status",
+          validValues: Object.values(LeaveRequestStatus),
+        })
+        .code(400);
     }
+
+    // We'll use normalizedStatus instead of status from here on
 
     // Get leave request
     const leaveRequestRepository = AppDataSource.getRepository(LeaveRequest);
@@ -487,16 +519,16 @@ export const updateLeaveRequestStatus = async (
     }
 
     // Check if leave request is already in the requested status
-    if (leaveRequest.status === status) {
+    if (leaveRequest.status === normalizedStatus) {
       return h
-        .response({ message: `Leave request is already ${status}` })
+        .response({ message: `Leave request is already ${normalizedStatus}` })
         .code(400);
     }
 
     // Check if leave request is pending
     if (
       leaveRequest.status !== LeaveRequestStatus.PENDING &&
-      status !== LeaveRequestStatus.CANCELLED
+      normalizedStatus !== LeaveRequestStatus.CANCELLED
     ) {
       return h
         .response({
@@ -529,7 +561,7 @@ export const updateLeaveRequestStatus = async (
       approver.role === UserRole.SUPER_ADMIN || approver.role === UserRole.HR;
     const isSelfCancellation =
       leaveRequest.userId === approverId &&
-      status === LeaveRequestStatus.CANCELLED;
+      normalizedStatus === LeaveRequestStatus.CANCELLED;
 
     if (!isManager && !isAdminOrHR && !isSelfCancellation) {
       return h
@@ -540,7 +572,7 @@ export const updateLeaveRequestStatus = async (
     }
 
     // Check if multi-level approval is required
-    if (status === LeaveRequestStatus.APPROVED) {
+    if (normalizedStatus === LeaveRequestStatus.APPROVED) {
       const approvalWorkflowRepository =
         AppDataSource.getRepository(ApprovalWorkflow);
       const approvalWorkflows = await approvalWorkflowRepository.find({
@@ -555,12 +587,34 @@ export const updateLeaveRequestStatus = async (
       );
 
       if (applicableWorkflow) {
-        // Use the approvalLevels directly as it's already a JSON object
-        const approvalLevels = applicableWorkflow.approvalLevels;
+        // Handle approvalLevels which might be a string or an object
+        let approvalLevels = applicableWorkflow.approvalLevels;
+
+        // Parse the approvalLevels if it's a string
+        if (typeof approvalLevels === "string") {
+          try {
+            approvalLevels = JSON.parse(approvalLevels);
+            // Handle the case where it might be double-stringified
+            if (typeof approvalLevels === "string") {
+              approvalLevels = JSON.parse(approvalLevels);
+            }
+          } catch (error) {
+            logger.error(`Error parsing approvalLevels: ${error}`);
+            return h
+              .response({
+                message: "An error occurred while processing approval workflow",
+              })
+              .code(500);
+          }
+        }
 
         // Check if approvalLevels is an array before using find method
         if (!Array.isArray(approvalLevels)) {
-          logger.error(`Error: approvalLevels is not an array: ${JSON.stringify(approvalLevels)}`);
+          logger.error(
+            `Error: approvalLevels is not an array: ${JSON.stringify(
+              approvalLevels
+            )}`
+          );
           return h
             .response({
               message: "An error occurred while processing approval workflow",
@@ -568,12 +622,24 @@ export const updateLeaveRequestStatus = async (
             .code(500);
         }
 
-        // Check if the approver has the required level
-        const requiredLevel = approvalLevels.find((level) =>
-          level.roles.includes(approver.role)
+        // Sort approval levels by level number to ensure proper hierarchy
+        const sortedLevels = [...approvalLevels].sort(
+          (a, b) => a.level - b.level
         );
 
-        if (!requiredLevel) {
+        // Find the current approver's level
+        let currentApproverLevel = null;
+        for (const level of sortedLevels) {
+          const roles = Array.isArray(level.roles)
+            ? level.roles
+            : [level.roles];
+          if (roles.includes(approver.role)) {
+            currentApproverLevel = level.level;
+            break;
+          }
+        }
+
+        if (currentApproverLevel === null) {
           return h
             .response({
               message:
@@ -581,20 +647,168 @@ export const updateLeaveRequestStatus = async (
             })
             .code(403);
         }
+
+        // Check if this is the highest level required for this leave request
+        const highestRequiredLevel =
+          sortedLevels[sortedLevels.length - 1].level;
+
+        // If this is not the highest level required, mark as "pending_next_approval" instead of fully approved
+        if (currentApproverLevel < highestRequiredLevel) {
+          // Store the current approval level in the comments for tracking
+          const currentApprovalComment = `Approved at level ${currentApproverLevel} by ${approver.firstName} ${approver.lastName}`;
+          const existingComments = leaveRequest.approverComments || "";
+
+          leaveRequest.approverComments = existingComments
+            ? `${existingComments}\n${currentApprovalComment}`
+            : currentApprovalComment;
+
+          if (comments) {
+            leaveRequest.approverComments += `\nComments: ${comments}`;
+          }
+
+          // Update status to PARTIALLY_APPROVED
+          leaveRequest.status = LeaveRequestStatus.PARTIALLY_APPROVED;
+          leaveRequest.approverId = approverId as string;
+
+          // Add metadata about the current approval level
+          const metadata = leaveRequest.metadata || {};
+          metadata.currentApprovalLevel = currentApproverLevel;
+          metadata.requiredApprovalLevels = sortedLevels.map((l) => l.level);
+
+          // Add to approval history
+          if (!metadata.approvalHistory) {
+            metadata.approvalHistory = [];
+          }
+
+          metadata.approvalHistory.push({
+            level: currentApproverLevel,
+            approverId: approverId as string,
+            approverName: `${approver.firstName} ${approver.lastName}`,
+            approvedAt: new Date(),
+            comments: comments || undefined,
+          });
+
+          leaveRequest.metadata = metadata;
+
+          // Save the updated leave request
+          const updatedLeaveRequest = await leaveRequestRepository.save(
+            leaveRequest
+          );
+
+          // Find the next approver(s) based on the next level
+          const nextLevel = sortedLevels.find(
+            (l) => l.level === currentApproverLevel + 1
+          );
+          if (nextLevel) {
+            const nextRoles = Array.isArray(nextLevel.roles)
+              ? nextLevel.roles
+              : [nextLevel.roles];
+
+            // Notify the next level approvers
+            const potentialApprovers = await userRepository.find({
+              where: { role: In(nextRoles), isActive: true },
+            });
+
+            if (potentialApprovers.length > 0) {
+              for (const nextApprover of potentialApprovers) {
+                // Send notification to the next approver
+                await emailService.sendLeaveRequestNotification(
+                  nextApprover.email,
+                  `${requestUser.firstName} ${requestUser.lastName}`,
+                  leaveRequest.leaveType.name,
+                  formatDate(leaveRequest.startDate),
+                  formatDate(leaveRequest.endDate),
+                  `${
+                    leaveRequest.reason
+                  }\n\nThis request has been approved at L-${currentApproverLevel} and requires your approval at L-${
+                    currentApproverLevel + 1
+                  }.`
+                );
+              }
+            }
+          }
+
+          // Notify the employee about partial approval
+          if (leaveRequest.user && leaveRequest.leaveType) {
+            await emailService.sendLeaveStatusUpdateNotification(
+              leaveRequest.user.email,
+              leaveRequest.leaveType.name,
+              formatDate(leaveRequest.startDate),
+              formatDate(leaveRequest.endDate),
+              LeaveRequestStatus.PARTIALLY_APPROVED,
+              `Your leave request has been approved at L-${currentApproverLevel} by ${approver.firstName} ${approver.lastName} and is awaiting further approval.`
+            );
+          }
+
+          return h
+            .response({
+              message: `Leave request approved at L-${currentApproverLevel}, pending higher level approval`,
+              leaveRequest: updatedLeaveRequest,
+            })
+            .code(200);
+        }
+
+        // If we reach here, this is the highest level approval needed, so fully approve
+        // Add to approval history
+        const metadata = leaveRequest.metadata || {};
+        if (!metadata.approvalHistory) {
+          metadata.approvalHistory = [];
+        }
+
+        metadata.approvalHistory.push({
+          level: currentApproverLevel,
+          approverId: approverId as string,
+          approverName: `${approver.firstName} ${approver.lastName}`,
+          approvedAt: new Date(),
+          comments: comments || undefined,
+        });
+
+        metadata.isFullyApproved = true;
+        leaveRequest.metadata = metadata;
       }
     }
 
     // Update leave request status
-    leaveRequest.status = status;
-    leaveRequest.approverComments = comments || null;
+    leaveRequest.status = normalizedStatus;
+
+    // Store comments in the database
+    if (comments) {
+      leaveRequest.approverComments = comments;
+    }
+
     leaveRequest.approverId = approverId as string;
     leaveRequest.approvedAt = new Date();
+
+    // If this is a final approval after partial approvals, update the metadata
+    if (
+      normalizedStatus === LeaveRequestStatus.APPROVED &&
+      leaveRequest.metadata
+    ) {
+      const metadata = leaveRequest.metadata;
+
+      // Add to approval history if it exists
+      if (metadata.approvalHistory) {
+        metadata.approvalHistory.push({
+          level: metadata.currentApprovalLevel
+            ? metadata.currentApprovalLevel + 1
+            : 1,
+          approverId: approverId as string,
+          approverName: `${approver.firstName} ${approver.lastName}`,
+          approvedAt: new Date(),
+          comments: comments || undefined,
+        });
+
+        // Mark as fully approved
+        metadata.isFullyApproved = true;
+        leaveRequest.metadata = metadata;
+      }
+    }
 
     // Save updated leave request
     const updatedLeaveRequest = await leaveRequestRepository.save(leaveRequest);
 
     // Update leave balance if approved
-    if (status === LeaveRequestStatus.APPROVED) {
+    if (normalizedStatus === LeaveRequestStatus.APPROVED) {
       const leaveBalanceRepository = AppDataSource.getRepository(LeaveBalance);
       const leaveBalance = await leaveBalanceRepository.findOne({
         where: {
@@ -617,22 +831,27 @@ export const updateLeaveRequestStatus = async (
         leaveRequest.leaveType.name,
         formatDate(leaveRequest.startDate),
         formatDate(leaveRequest.endDate),
-        status,
+        normalizedStatus,
         comments
       );
     }
 
     return h
       .response({
-        message: `Leave request ${status} successfully`,
+        message: `Leave request ${normalizedStatus} successfully`,
         leaveRequest: updatedLeaveRequest,
       })
       .code(200);
   } catch (error) {
     logger.error(`Error in updateLeaveRequestStatus: ${error}`);
+    logger.error(`Error details: ${JSON.stringify(error)}`);
+    logger.error(`Request payload: ${JSON.stringify(request.payload)}`);
+    logger.error(`Request params: ${JSON.stringify(request.params)}`);
+
     return h
       .response({
         message: "An error occurred while updating the leave request status",
+        error: error.message,
       })
       .code(500);
   }
@@ -643,6 +862,9 @@ export const cancelLeaveRequest = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is established before proceeding
+    await ensureDatabaseConnection();
+
     const { id } = request.params;
     const userId = request.auth.credentials.id;
 

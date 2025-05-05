@@ -470,3 +470,129 @@ export const bulkCreateLeaveBalances = async (
       .code(500);
   }
 };
+
+export const createAllLeaveBalancesForAllUsers = async (
+  request: Request,
+  h: ResponseToolkit
+) => {
+  try {
+    // Get all active leave types
+    const leaveTypeRepository = AppDataSource.getRepository(LeaveType);
+    const leaveTypes = await leaveTypeRepository.find({
+      where: { isActive: true },
+    });
+
+    if (leaveTypes.length === 0) {
+      return h.response({ message: "No active leave types found" }).code(404);
+    }
+
+    // Get all active users
+    const userRepository = AppDataSource.getRepository(User);
+    const users = await userRepository.find({ where: { isActive: true } });
+
+    if (users.length === 0) {
+      return h.response({ message: "No active users found" }).code(404);
+    }
+
+    // Get current year
+    const targetYear = getCurrentYear();
+
+    // Create leave balances for all users and all leave types
+    const leaveBalanceRepository = AppDataSource.getRepository(LeaveBalance);
+    const results = {
+      created: 0,
+      updated: 0,
+      skipped: 0,
+      leaveTypes: leaveTypes.length,
+      users: users.length,
+    };
+
+    for (const leaveType of leaveTypes) {
+      for (const user of users) {
+        // Skip users with incompatible gender for gender-specific leave types
+        if (
+          leaveType.applicableGender &&
+          user.gender !== leaveType.applicableGender
+        ) {
+          results.skipped++;
+          continue;
+        }
+
+        // Check if leave balance already exists
+        const existingLeaveBalance = await leaveBalanceRepository.findOne({
+          where: {
+            userId: user.id,
+            leaveTypeId: leaveType.id,
+            year: targetYear,
+          },
+        });
+
+        if (existingLeaveBalance) {
+          // Update existing leave balance
+          existingLeaveBalance.balance = leaveType.defaultDays;
+
+          // Calculate carry forward if enabled
+          if (leaveType.isCarryForward) {
+            const previousYearBalance = await leaveBalanceRepository.findOne({
+              where: {
+                userId: user.id,
+                leaveTypeId: leaveType.id,
+                year: targetYear - 1,
+              },
+            });
+
+            if (previousYearBalance) {
+              const remainingBalance =
+                previousYearBalance.balance - previousYearBalance.used;
+              existingLeaveBalance.carryForward = Math.min(
+                remainingBalance > 0 ? remainingBalance : 0,
+                leaveType.maxCarryForwardDays
+              );
+            }
+          }
+
+          await leaveBalanceRepository.save(existingLeaveBalance);
+          results.updated++;
+
+          // Send email notification
+          await emailService.sendLeaveBalanceUpdateNotification(
+            user.email,
+            leaveType.name,
+            existingLeaveBalance.balance + existingLeaveBalance.carryForward
+          );
+        } else {
+          // Create new leave balance
+          const leaveBalance = new LeaveBalance();
+          leaveBalance.userId = user.id;
+          leaveBalance.leaveTypeId = leaveType.id;
+          leaveBalance.balance = leaveType.defaultDays;
+          leaveBalance.used = 0;
+          leaveBalance.carryForward = 0;
+          leaveBalance.year = targetYear;
+
+          await leaveBalanceRepository.save(leaveBalance);
+          results.created++;
+
+          // Send email notification
+          await emailService.sendLeaveBalanceUpdateNotification(
+            user.email,
+            leaveType.name,
+            leaveType.defaultDays
+          );
+        }
+      }
+    }
+
+    return h
+      .response({
+        message: "All leave balances creation completed for all users",
+        results,
+      })
+      .code(200);
+  } catch (error) {
+    logger.error(`Error in createAllLeaveBalancesForAllUsers: ${error}`);
+    return h
+      .response({ message: "An error occurred while creating leave balances" })
+      .code(500);
+  }
+};

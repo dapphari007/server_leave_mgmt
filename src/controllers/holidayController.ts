@@ -5,6 +5,12 @@ import logger from "../utils/logger";
 
 export const createHoliday = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in createHoliday");
+    }
+
     const { name, date, description, isActive } = request.payload as any;
 
     // Validate input
@@ -50,6 +56,12 @@ export const createHoliday = async (request: Request, h: ResponseToolkit) => {
 
 export const getAllHolidays = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in getAllHolidays");
+    }
+
     const { year, isActive } = request.query as any;
 
     // Build query
@@ -100,6 +112,12 @@ export const getAllHolidays = async (request: Request, h: ResponseToolkit) => {
 
 export const getHolidayById = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in getHolidayById");
+    }
+
     const { id } = request.params;
 
     // Get holiday
@@ -132,6 +150,12 @@ export const getHolidayById = async (request: Request, h: ResponseToolkit) => {
 
 export const updateHoliday = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in updateHoliday");
+    }
+
     const { id } = request.params;
     const { name, date, description, isActive } = request.payload as any;
 
@@ -185,6 +209,12 @@ export const updateHoliday = async (request: Request, h: ResponseToolkit) => {
 
 export const deleteHoliday = async (request: Request, h: ResponseToolkit) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in deleteHoliday");
+    }
+
     const { id } = request.params;
 
     // Get holiday
@@ -216,6 +246,12 @@ export const bulkCreateHolidays = async (
   h: ResponseToolkit
 ) => {
   try {
+    // Ensure database connection is initialized
+    if (!AppDataSource.isInitialized) {
+      await AppDataSource.initialize();
+      logger.info("Database connection initialized in bulkCreateHolidays");
+    }
+
     const { holidays } = request.payload as {
       holidays: { name: string; date: string; description?: string }[];
     };

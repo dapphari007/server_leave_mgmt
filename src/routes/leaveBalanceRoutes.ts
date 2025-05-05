@@ -72,6 +72,16 @@ const leaveBalanceRoutes: ServerRoute[] = [
       tags: ["api", "leave-balances"],
     },
   },
+  {
+    method: "POST",
+    path: "/api/leave-balances/create-all-for-all-users",
+    handler: LeaveBalanceController.createAllLeaveBalancesForAllUsers,
+    options: {
+      auth: "super_admin",
+      description: "Create leave balances for all leave types and all users",
+      tags: ["api", "leave-balances"],
+    },
+  },
 ];
 
 export default leaveBalanceRoutes;
