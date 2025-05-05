@@ -82,6 +82,16 @@ const leaveBalanceRoutes: ServerRoute[] = [
       tags: ["api", "leave-balances"],
     },
   },
+  {
+    method: "GET",
+    path: "/api/leave-balances/check-flushed",
+    handler: LeaveBalanceController.checkDatabaseFlushed,
+    options: {
+      auth: "super_admin",
+      description: "Check if the database is flushed (no leave balances exist)",
+      tags: ["api", "leave-balances"],
+    },
+  },
 ];
 
 export default leaveBalanceRoutes;

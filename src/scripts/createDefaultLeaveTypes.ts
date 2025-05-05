@@ -2,9 +2,13 @@ import { AppDataSource } from "../config/database";
 import { LeaveType } from "../models";
 import logger from "../utils/logger";
 
-export const createDefaultLeaveTypes = async (): Promise<void> => {
+export const createDefaultLeaveTypes = async (
+  closeConnection = false
+): Promise<void> => {
+  let wasInitialized = AppDataSource.isInitialized;
+
   try {
-    // Initialize database connection
+    // Initialize database connection if not already initialized
     if (!AppDataSource.isInitialized) {
       await AppDataSource.initialize();
       logger.info("Database connection initialized in createDefaultLeaveTypes");
@@ -109,21 +113,29 @@ export const createDefaultLeaveTypes = async (): Promise<void> => {
     let skipped = 0;
 
     for (const leaveTypeData of defaultLeaveTypes) {
-      // Check if leave type already exists
-      const existingLeaveType = await leaveTypeRepository.findOne({
-        where: { name: leaveTypeData.name },
-      });
+      try {
+        // Check if leave type already exists
+        const existingLeaveType = await leaveTypeRepository.findOne({
+          where: { name: leaveTypeData.name },
+        });
 
-      if (!existingLeaveType) {
-        // Create new leave type
-        const leaveType = new LeaveType();
-        Object.assign(leaveType, leaveTypeData);
-        await leaveTypeRepository.save(leaveType);
-        created++;
-        logger.info(`Created leave type: ${leaveTypeData.name}`);
-      } else {
+        if (!existingLeaveType) {
+          // Create new leave type
+          const leaveType = new LeaveType();
+          Object.assign(leaveType, leaveTypeData);
+          await leaveTypeRepository.save(leaveType);
+          created++;
+          logger.info(`Created leave type: ${leaveTypeData.name}`);
+        } else {
+          skipped++;
+          logger.info(`Skipped existing leave type: ${leaveTypeData.name}`);
+        }
+      } catch (leaveTypeError) {
+        // Log the error but continue with the next leave type
+        logger.error(
+          `Error processing leave type ${leaveTypeData.name}: ${leaveTypeError}`
+        );
         skipped++;
-        logger.info(`Skipped existing leave type: ${leaveTypeData.name}`);
       }
     }
 
@@ -132,18 +144,19 @@ export const createDefaultLeaveTypes = async (): Promise<void> => {
     );
   } catch (error) {
     logger.error(`Error creating default leave types: ${error}`);
-    throw error;
+    // Don't throw the error, just log it
   } finally {
-    // Close the connection
-    if (AppDataSource.isInitialized) {
+    // Only close the connection if we opened it and closeConnection is true
+    if (!wasInitialized && AppDataSource.isInitialized && closeConnection) {
       await AppDataSource.destroy();
+      logger.info("Database connection closed in createDefaultLeaveTypes");
     }
   }
 };
 
 // Execute if this script is run directly
 if (require.main === module) {
-  createDefaultLeaveTypes()
+  createDefaultLeaveTypes(true) // true to close the connection when run directly
     .then(() => {
       logger.info("Default leave types creation script completed");
       process.exit(0);

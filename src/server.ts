@@ -11,7 +11,14 @@ import config from "./config/config";
 import logger from "./utils/logger";
 import { ensureDefaultUsers } from "./utils/ensure-default-users";
 import { createDefaultLeaveTypes } from "./scripts/createDefaultLeaveTypes";
-import { createHolidays2025 } from "./scripts/createHolidays2025";
+import { createHolidays } from "./scripts/createHolidays2025";
+import { initializeSystemRoles } from "./controllers/roleController";
+import { initializeSystemPages } from "./controllers/pageController";
+import { createTestUser } from "./scripts/createTestUser";
+import { createDefaultDepartments } from "./scripts/createDefaultDepartments";
+import { createDefaultPositions } from "./scripts/createDefaultPositions";
+import { createDefaultRoles } from "./scripts/createDefaultRoles";
+import { setupDefaultData } from "./scripts/setupDefaultData";
 
 const init = async () => {
   try {
@@ -34,13 +41,17 @@ const init = async () => {
       }
     }
 
+    // Setup default data
+    await setupDefaultData();
+    logger.info("Default data setup completed");
+
     // Create Hapi server
     const server = Hapi.server({
       port: config.server.port,
       host: config.server.host,
       routes: {
         cors: {
-          origin: ["*"],
+          origin: ["http://localhost:5173"], // Allow the Vite dev server
           credentials: true,
           additionalHeaders: ["Authorization", "Content-Type"],
           additionalExposedHeaders: ["Authorization"],
@@ -73,24 +84,198 @@ const init = async () => {
     // Register routes
     registerRoutes(server);
 
+    // Run migrations if needed with better error handling
+    try {
+      // Use TypeORM's built-in migration runner instead of custom implementation
+      logger.info("Checking for pending migrations...");
+      const pendingMigrations = await AppDataSource.showMigrations();
+
+      if (pendingMigrations) {
+        logger.info("Running pending migrations...");
+        try {
+          // This will run all pending migrations in the correct order
+          await AppDataSource.runMigrations({ transaction: "each" });
+          logger.info("Migrations completed successfully");
+
+          // Add a small delay to ensure database is in a consistent state
+          // before proceeding with other operations
+          logger.info("Waiting for database to stabilize...");
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+        } catch (migrationError) {
+          logger.error("Error running migrations:", migrationError);
+        }
+      } else {
+        logger.info("No pending migrations found");
+      }
+    } catch (error) {
+      logger.error("Error in migration process:", error);
+    }
+
+    // Check if tables exist before initializing data
+    const tablesExist = async (tableNames: string[]): Promise<boolean> => {
+      try {
+        // First ensure database connection is established
+        if (!AppDataSource.isInitialized) {
+          logger.warn(
+            "Database connection not initialized when checking tables"
+          );
+          await ensureDatabaseConnection();
+        }
+
+        for (const tableName of tableNames) {
+          try {
+            const result = await AppDataSource.query(
+              `
+              SELECT EXISTS (
+                SELECT FROM information_schema.tables 
+                WHERE table_schema = 'public' 
+                AND table_name = $1
+              )
+            `,
+              [tableName]
+            );
+
+            if (!result[0].exists) {
+              logger.warn(`Table ${tableName} does not exist yet`);
+              return false;
+            }
+          } catch (tableError) {
+            logger.warn(
+              `Error checking if table ${tableName} exists:`,
+              tableError
+            );
+            return false;
+          }
+        }
+        return true;
+      } catch (error) {
+        logger.error("Error checking if tables exist:", error);
+        return false;
+      }
+    };
+
+    // Initialize system roles
+    try {
+      if (await tablesExist(["roles"])) {
+        await initializeSystemRoles();
+        console.log("System roles initialized");
+      } else {
+        logger.warn(
+          "Roles table not available yet, skipping system roles initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error initializing system roles:", error);
+    }
+
+    // Initialize system pages
+    try {
+      if (await tablesExist(["pages"])) {
+        await initializeSystemPages();
+        console.log("System pages initialized");
+      } else {
+        logger.warn(
+          "Pages table not available yet, skipping system pages initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error initializing system pages:", error);
+    }
+
     // Ensure default users exist (including superadmin, managers, HR, and employees)
-    await ensureDefaultUsers();
-    console.log("Default users check completed");
+    try {
+      if (await tablesExist(["users"])) {
+        await ensureDefaultUsers();
+        console.log("Default users check completed");
+      } else {
+        logger.warn(
+          "Users table not available yet, skipping default users initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error ensuring default users:", error);
+    }
 
     // Create default leave types
     try {
-      await createDefaultLeaveTypes();
-      console.log("Default leave types check completed");
+      if (await tablesExist(["leave_types"])) {
+        // Pass false to not close the connection since we're in the server initialization
+        await createDefaultLeaveTypes(false);
+        console.log("Default leave types check completed");
+      } else {
+        logger.warn(
+          "Leave types table not available yet, skipping default leave types initialization"
+        );
+      }
     } catch (error) {
       logger.error("Error creating default leave types:", error);
+      // Continue with server initialization even if leave type creation fails
     }
 
-    // Create holidays for 2025
+    // Create default departments
     try {
-      await createHolidays2025();
-      console.log("2025 holidays check completed");
+      if (await tablesExist(["departments"])) {
+        await createDefaultDepartments(false);
+        console.log("Default departments check completed");
+      } else {
+        logger.warn(
+          "Departments table not available yet, skipping default departments initialization"
+        );
+      }
     } catch (error) {
-      logger.error("Error creating 2025 holidays:", error);
+      logger.error("Error creating default departments:", error);
+    }
+
+    // Create default positions
+    try {
+      if (await tablesExist(["positions"])) {
+        await createDefaultPositions(false);
+        console.log("Default positions check completed");
+      } else {
+        logger.warn(
+          "Positions table not available yet, skipping default positions initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error creating default positions:", error);
+    }
+
+    // Create default roles
+    try {
+      if (await tablesExist(["roles"])) {
+        await createDefaultRoles(false);
+        console.log("Default roles check completed");
+      } else {
+        logger.warn(
+          "Roles table not available yet, skipping default roles initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error creating default roles:", error);
+    }
+
+    // Create holidays
+    try {
+      if (await tablesExist(["holidays"])) {
+        // Pass false to not close the connection since we're in the server initialization
+        await createHolidays(false);
+        console.log("Holidays check completed");
+      } else {
+        logger.warn(
+          "Holidays table not available yet, skipping holidays initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error creating holidays:", error);
+      // Continue with server initialization even if holiday creation fails
+    }
+
+    // Create a test user for login
+    try {
+      await createTestUser();
+      console.log("Test user creation completed");
+    } catch (error) {
+      logger.error("Error creating test user:", error);
     }
 
     // Set up database connection health check

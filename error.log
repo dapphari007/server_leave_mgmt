@@ -488,3 +488,438 @@
 2025-05-05T15:01:00.957Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
 2025-05-05T15:06:20.456Z [error]: Response: OPTIONS /api/leave-types/63e394eb-2634-4ffd-b72e-161796ab153c/deactivate - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
 2025-05-05T15:08:25.314Z [error]: Response: OPTIONS /api/leave-types/63e394eb-2634-4ffd-b72e-161796ab153c/deactivate - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T15:43:08.970Z [error]: Error starting server: column User.roleId does not exist
+2025-05-05T15:43:40.006Z [error]: Error starting server: column User.roleId does not exist
+2025-05-05T15:48:01.636Z [error]: Error running migrations: type "user_role_enum" already exists
+2025-05-05T15:48:01.642Z [error]: Error initializing system roles: QueryFailedError: relation "roles" does not exist
+2025-05-05T15:48:01.646Z [error]: Error initializing system pages: QueryFailedError: relation "pages" does not exist
+2025-05-05T15:48:01.704Z [error]: Error starting server: column User.roleId does not exist
+2025-05-05T15:49:44.304Z [error]: Error running migrations: type "user_role_enum" already exists
+2025-05-05T15:49:44.312Z [error]: Error initializing system roles: QueryFailedError: relation "roles" does not exist
+2025-05-05T15:49:44.317Z [error]: Error initializing system pages: QueryFailedError: relation "pages" does not exist
+2025-05-05T15:49:44.386Z [error]: Error starting server: column User.roleId does not exist
+2025-05-05T15:54:24.398Z [error]: Error running migrations: foreign key constraint "FK_users_manager" cannot be implemented
+2025-05-05T15:54:24.403Z [error]: Error initializing system roles: QueryFailedError: relation "roles" does not exist
+2025-05-05T15:54:24.405Z [error]: Error initializing system pages: QueryFailedError: relation "pages" does not exist
+2025-05-05T15:54:24.445Z [error]: Error starting server: column User.roleId does not exist
+2025-05-05T15:54:56.625Z [error]: Error running migrations: foreign key constraint "FK_users_manager" cannot be implemented
+2025-05-05T15:54:56.633Z [error]: Error initializing system roles: QueryFailedError: relation "roles" does not exist
+2025-05-05T15:54:56.635Z [error]: Error initializing system pages: QueryFailedError: relation "pages" does not exist
+2025-05-05T15:54:56.689Z [error]: Error starting server: column User.roleId does not exist
+2025-05-05T16:01:00.359Z [error]: Error running migration AddRolesDepartmentsPositionsPages1715000000000: relation "users" does not exist
+2025-05-05T16:01:00.405Z [error]: Error running migration undefined: relation "users" does not exist
+2025-05-05T16:01:01.461Z [error]: Error checking if tables exist: Driver not Connected
+2025-05-05T16:03:38.657Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 65ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:03:40.328Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 3ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:04:11.374Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 7ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:07:29.876Z [error]: Error creating 2025 holidays: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:07:29.892Z [error]: Error creating 2025 holidays: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:08:28.102Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 59ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:10:11.520Z [error]: Error processing holiday New Year's Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.525Z [error]: Error processing holiday Martin Luther King Jr. Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.529Z [error]: Error processing holiday Presidents' Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.533Z [error]: Error processing holiday Good Friday: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.538Z [error]: Error processing holiday Easter Monday: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.543Z [error]: Error processing holiday Memorial Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.547Z [error]: Error processing holiday Independence Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.550Z [error]: Error processing holiday Labor Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.554Z [error]: Error processing holiday Columbus Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.558Z [error]: Error processing holiday Veterans Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.562Z [error]: Error processing holiday Thanksgiving Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.565Z [error]: Error processing holiday Day after Thanksgiving: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.567Z [error]: Error processing holiday Christmas Eve: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.573Z [error]: Error processing holiday Christmas Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:11.577Z [error]: Error processing holiday New Year's Eve: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:10:20.816Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 6ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:11:07.415Z [error]: Error processing holiday New Year's Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.418Z [error]: Error processing holiday Martin Luther King Jr. Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.422Z [error]: Error processing holiday Presidents' Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.426Z [error]: Error processing holiday Good Friday: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.429Z [error]: Error processing holiday Easter Monday: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.432Z [error]: Error processing holiday Memorial Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.436Z [error]: Error processing holiday Independence Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.439Z [error]: Error processing holiday Labor Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.444Z [error]: Error processing holiday Columbus Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.447Z [error]: Error processing holiday Veterans Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.450Z [error]: Error processing holiday Thanksgiving Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.454Z [error]: Error processing holiday Day after Thanksgiving: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.457Z [error]: Error processing holiday Christmas Eve: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.461Z [error]: Error processing holiday Christmas Day: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:11:07.464Z [error]: Error processing holiday New Year's Eve: QueryFailedError: duplicate key value violates unique constraint "UQ_holidays_date"
+2025-05-05T16:13:05.746Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 4ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:13:08.483Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 4ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:13:16.187Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 3ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:13:20.761Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 61ms - Error: {"message":"Invalid email or password"}
+2025-05-05T16:14:11.154Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:14:11.154Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 59ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:14:12.173Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:14:12.173Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 6ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:23:35.227Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:23:35.227Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 12ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:23:36.243Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:23:36.244Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:31:18.187Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:18.309Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:18.452Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:18.550Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:18.671Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:18.790Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:18.905Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:19.009Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:19.128Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:19.243Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:19.345Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:19.452Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:27.316Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:27.525Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:27.716Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:27.886Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.050Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.220Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.386Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.571Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.697Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.808Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:28.919Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.030Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.142Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.255Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.373Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.481Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.567Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.707Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:29.869Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:30.004Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:30.164Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:30.328Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:30.492Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:30.671Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:47.839Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:47.960Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:48.067Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:48.194Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:48.291Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:48.982Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:49.089Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:49.198Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:49.297Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:49.399Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:49.505Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:49.612Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.168Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.274Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.373Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.483Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.579Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.680Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.781Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.883Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:50.988Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:51.092Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:51.194Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:51.303Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:52.301Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:52.411Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:52.526Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:52.678Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:52.806Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:52.902Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:53.002Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:53.110Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:53.220Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:53.325Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:53.431Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:53.529Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:54.475Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:54.588Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:54.695Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:54.803Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:54.898Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.007Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.103Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.199Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.298Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.408Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.514Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:31:55.621Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-05T16:37:11.196Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.199Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.210Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.214Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.216Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.219Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.223Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.227Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.228Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.231Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.233Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.235Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.237Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.241Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.244Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:11.245Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.917Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.939Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.943Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.947Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.951Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.956Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.960Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:13.964Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:16.876Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:37:16.876Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 26ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:37:20.107Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:37:20.108Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 19ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:37:26.255Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.257Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.273Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.277Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.286Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.290Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.292Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.294Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.296Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.298Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.300Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.302Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.305Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.307Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.309Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:26.311Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.105Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.107Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.118Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.121Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.131Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.133Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.137Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.139Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.142Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.143Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.145Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.147Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.149Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.151Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.155Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:37:31.156Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:35.784Z [error]: Error in getUserLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:40:35.785Z [error]: Response: GET /api/leave-requests/my-requests - Status: 500 - Time: 64ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:40:36.798Z [error]: Error in getUserLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:40:36.799Z [error]: Response: GET /api/leave-requests/my-requests - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:40:41.816Z [error]: Error in getUserLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:40:41.816Z [error]: Response: GET /api/leave-requests/my-requests - Status: 500 - Time: 13ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:40:42.830Z [error]: Error in getUserLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:40:42.831Z [error]: Response: GET /api/leave-requests/my-requests - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:40:45.359Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 4ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.365Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.378Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.380Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.395Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.397Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.399Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.402Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.404Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.406Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.408Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.417Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 7ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.420Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.426Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.428Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:40:45.430Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:41:01.618Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:41:01.618Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 198ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:41:02.629Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T16:41:02.630Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T16:43:05.490Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.496Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.517Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.520Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.621Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 39ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.630Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 8ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.652Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 4ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.655Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.657Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.661Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.664Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.667Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.669Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.671Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.673Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:05.675Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.355Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.447Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.452Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.457Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.462Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.466Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.471Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:09.476Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.011Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.037Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 5ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.041Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.045Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.050Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.055Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.058Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:19.061Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.841Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.843Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.857Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.860Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.874Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.876Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.888Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 7ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.911Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 17ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.954Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 21ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.960Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:24.986Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 10ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:25.023Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 19ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:25.028Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:25.032Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:25.035Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:43:25.054Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.191Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.211Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.216Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.223Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.227Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.232Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.239Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:46.242Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.074Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.093Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.096Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.100Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.106Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.110Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.115Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:44:47.121Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:49:13.429Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
+2025-05-05T16:53:00.629Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.644Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.650Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.654Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.660Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.663Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.667Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:53:00.670Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.634Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.649Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.654Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.657Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.661Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.665Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.668Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:19.671Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.808Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 5ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.814Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.817Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.821Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.825Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.828Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.830Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:56:40.832Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.219Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.221Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.231Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.233Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.235Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.236Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.238Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.240Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.241Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.244Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.247Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.249Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.251Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.253Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.255Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:43.256Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.145Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.149Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.159Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.163Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.164Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.166Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.168Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.169Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.171Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.173Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.175Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.177Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.179Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.181Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.182Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:57:55.184Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.790Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.792Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.803Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.806Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.815Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.816Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.818Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.820Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.824Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.826Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.828Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.829Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.830Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.832Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.834Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T16:58:53.837Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.857Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.860Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.878Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.887Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.897Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 4ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.905Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.909Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.912Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.917Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:26.921Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.328Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.350Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 4ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.370Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 15ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.393Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.410Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.439Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.444Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:06:31.448Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:31.534Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:32.551Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:39.033Z [error]: Response: OPTIONS /api/api/departments - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:40.041Z [error]: Response: OPTIONS /api/api/departments - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:41.262Z [error]: Response: OPTIONS /api/api/departments - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:44.892Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:45.897Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:47.015Z [error]: Response: OPTIONS /api/api/departments - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:48.027Z [error]: Response: OPTIONS /api/api/departments - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:48.663Z [error]: Response: OPTIONS /api/api/positions - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:49.679Z [error]: Response: OPTIONS /api/api/positions - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.356Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.360Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.372Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.381Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.387Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.390Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.393Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.396Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.400Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:50.403Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:53.854Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T17:11:53.855Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 16ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T17:11:54.867Z [error]: Error in getManagerLeaveRequests: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-05T17:11:54.868Z [error]: Response: GET /api/leave-requests/team-requests - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while fetching leave requests"}
+2025-05-05T17:11:57.170Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.180Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.184Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.203Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.216Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.233Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.237Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:57.241Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:11:59.918Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:12:00.923Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:12:19.049Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:12:20.081Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-05T17:12:48.329Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}

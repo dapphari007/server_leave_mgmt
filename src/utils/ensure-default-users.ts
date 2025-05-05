@@ -1,5 +1,13 @@
 import { AppDataSource } from "../config/database";
-import { User, UserRole, UserLevel, Gender } from "../models";
+import {
+  User,
+  UserRole,
+  UserLevel,
+  Gender,
+  Role,
+  Department,
+  Position,
+} from "../models";
 import { hashPassword } from "./auth";
 import { MigrationInterface, QueryRunner, TableColumn } from "typeorm";
 
@@ -7,8 +15,96 @@ export const ensureDefaultUsers = async (): Promise<void> => {
   try {
     // First, ensure the User entity has department and position columns
     await ensureDepartmentAndPositionColumns();
+    
+    // Also ensure roleId, departmentId, and positionId columns exist
+    await ensureRelationshipColumns();
 
     const userRepository = AppDataSource.getRepository(User);
+    
+    // Check if the roles, departments, and positions tables exist
+    let rolesExist = false;
+    let departmentsExist = false;
+    let positionsExist = false;
+    
+    // Check if the required columns exist in the users table
+    let roleIdExists = false;
+    let departmentIdExists = false;
+    let positionIdExists = false;
+    
+    try {
+      // Check if roleId column exists
+      await AppDataSource.query(`
+        SELECT roleId FROM users LIMIT 1
+      `).catch(() => {
+        throw new Error("roleId column does not exist");
+      });
+      roleIdExists = true;
+    } catch (error) {
+      console.log("roleId column not available yet, skipping role assignments");
+    }
+    
+    try {
+      // Check if departmentId column exists
+      await AppDataSource.query(`
+        SELECT departmentId FROM users LIMIT 1
+      `).catch(() => {
+        throw new Error("departmentId column does not exist");
+      });
+      departmentIdExists = true;
+    } catch (error) {
+      console.log("departmentId column not available yet, skipping department assignments");
+    }
+    
+    try {
+      // Check if positionId column exists
+      await AppDataSource.query(`
+        SELECT positionId FROM users LIMIT 1
+      `).catch(() => {
+        throw new Error("positionId column does not exist");
+      });
+      positionIdExists = true;
+    } catch (error) {
+      console.log("positionId column not available yet, skipping position assignments");
+    }
+
+    // Only try to use repositories if the columns exist
+    let roleRepository;
+    let departmentRepository;
+    let positionRepository;
+    
+    if (roleIdExists) {
+      try {
+        roleRepository = AppDataSource.getRepository(Role);
+        await roleRepository.find({ take: 1 });
+        rolesExist = true;
+      } catch (error) {
+        console.log("Roles table not available yet, skipping role assignments");
+      }
+    }
+
+    if (departmentIdExists) {
+      try {
+        departmentRepository = AppDataSource.getRepository(Department);
+        await departmentRepository.find({ take: 1 });
+        departmentsExist = true;
+      } catch (error) {
+        console.log(
+          "Departments table not available yet, skipping department assignments"
+        );
+      }
+    }
+
+    if (positionIdExists) {
+      try {
+        positionRepository = AppDataSource.getRepository(Position);
+        await positionRepository.find({ take: 1 });
+        positionsExist = true;
+      } catch (error) {
+        console.log(
+          "Positions table not available yet, skipping position assignments"
+        );
+      }
+    }
 
     // Define 10 default users with department and position
     const defaultUsers = [
@@ -228,6 +324,80 @@ export const ensureDefaultUsers = async (): Promise<void> => {
       }
     }
 
+    // If the new tables exist and columns exist, set up the relationships
+    if (rolesExist && departmentsExist && positionsExist && 
+        roleIdExists && departmentIdExists && positionIdExists) {
+      console.log("Setting up relationships for users with roles, departments, and positions");
+      
+      // Link users to roles, departments, and positions
+      for (const user of createdUsers) {
+        try {
+          // Find or create role
+          let role = await roleRepository.findOne({ where: { name: user.role } });
+          if (role) {
+            user.roleId = role.id;
+          }
+
+          // Find or create department
+          let department = await departmentRepository.findOne({
+            where: { name: user.department },
+          });
+          if (!department && user.department) {
+            department = new Department();
+            department.name = user.department;
+            department.description = `${user.department} Department`;
+            department.isActive = true;
+            department = await departmentRepository.save(department);
+            console.log(`Created department: ${department.name}`);
+          }
+
+          if (department) {
+            user.departmentId = department.id;
+          }
+
+          // Find or create position
+          let position = null;
+          if (department) {
+            position = await positionRepository.findOne({
+              where: {
+                name: user.position,
+                departmentId: department.id,
+              },
+            });
+          } else {
+            position = await positionRepository.findOne({
+              where: { name: user.position },
+            });
+          }
+
+          if (!position && user.position) {
+            position = new Position();
+            position.name = user.position;
+            position.description = `${user.position} Position`;
+            position.isActive = true;
+            if (department) {
+              position.departmentId = department.id;
+            }
+            position = await positionRepository.save(position);
+            console.log(`Created position: ${position.name}`);
+          }
+
+          if (position) {
+            user.positionId = position.id;
+          }
+
+          // Save the updated user
+          await userRepository.save(user);
+          console.log(`Updated relationships for user: ${user.email}`);
+        } catch (error) {
+          console.error(`Error setting up relationships for user ${user.email}:`, error);
+          // Continue with next user
+        }
+      }
+    } else {
+      console.log("Skipping relationship setup due to missing tables or columns");
+    }
+
     console.log("Default users check completed");
   } catch (error) {
     console.error("Error ensuring default users:", error);
@@ -246,9 +416,13 @@ const ensureDepartmentAndPositionColumns = async (): Promise<void> => {
       name: "AddDepartmentAndPositionColumns",
       async up(queryRunner: QueryRunner): Promise<void> {
         const table = await queryRunner.getTable("users");
+        if (!table) {
+          console.log("Users table does not exist yet, skipping column check");
+          return;
+        }
 
         // Check if department column exists in the database
-        const departmentColumn = table?.findColumnByName("department");
+        const departmentColumn = table.findColumnByName("department");
         if (!departmentColumn) {
           await queryRunner.addColumn(
             "users",
@@ -263,7 +437,7 @@ const ensureDepartmentAndPositionColumns = async (): Promise<void> => {
         }
 
         // Check if position column exists in the database
-        const positionColumn = table?.findColumnByName("position");
+        const positionColumn = table.findColumnByName("position");
         if (!positionColumn) {
           await queryRunner.addColumn(
             "users",
@@ -298,6 +472,91 @@ const ensureDepartmentAndPositionColumns = async (): Promise<void> => {
     }
   } catch (error) {
     console.error("Error ensuring department and position columns:", error);
-    throw error;
+    // Don't throw the error, just log it and continue
+    console.log("Continuing despite error in ensuring columns");
+  }
+};
+
+/**
+ * Ensures that the User entity has roleId, departmentId, and positionId columns
+ * Uses TypeORM's migration API to add columns if they don't exist
+ */
+const ensureRelationshipColumns = async (): Promise<void> => {
+  try {
+    // Create a migration to add the columns
+    const migration: MigrationInterface = {
+      name: "AddRelationshipColumns",
+      async up(queryRunner: QueryRunner): Promise<void> {
+        const table = await queryRunner.getTable("users");
+        if (!table) {
+          console.log("Users table does not exist yet, skipping column check");
+          return;
+        }
+
+        // Check if roleId column exists in the database
+        const roleIdColumn = table.findColumnByName("roleId");
+        if (!roleIdColumn) {
+          await queryRunner.addColumn(
+            "users",
+            new TableColumn({
+              name: "roleId",
+              type: "uuid",
+              isNullable: true,
+            })
+          );
+          console.log("roleId column added to users table");
+        }
+
+        // Check if departmentId column exists in the database
+        const departmentIdColumn = table.findColumnByName("departmentId");
+        if (!departmentIdColumn) {
+          await queryRunner.addColumn(
+            "users",
+            new TableColumn({
+              name: "departmentId",
+              type: "uuid",
+              isNullable: true,
+            })
+          );
+          console.log("departmentId column added to users table");
+        }
+
+        // Check if positionId column exists in the database
+        const positionIdColumn = table.findColumnByName("positionId");
+        if (!positionIdColumn) {
+          await queryRunner.addColumn(
+            "users",
+            new TableColumn({
+              name: "positionId",
+              type: "uuid",
+              isNullable: true,
+            })
+          );
+          console.log("positionId column added to users table");
+        }
+      },
+
+      async down(queryRunner: QueryRunner): Promise<void> {
+        // This method is required but we don't need to implement it
+      },
+    };
+
+    // Run the migration
+    const queryRunner = AppDataSource.createQueryRunner();
+    try {
+      await queryRunner.connect();
+      await queryRunner.startTransaction();
+      await migration.up(queryRunner);
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      throw error;
+    } finally {
+      await queryRunner.release();
+    }
+  } catch (error) {
+    console.error("Error ensuring relationship columns:", error);
+    // Don't throw the error, just log it and continue
+    console.log("Continuing despite error in ensuring columns");
   }
 };

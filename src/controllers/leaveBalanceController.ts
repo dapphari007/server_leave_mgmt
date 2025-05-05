@@ -596,3 +596,20 @@ export const createAllLeaveBalancesForAllUsers = async (
       .code(500);
   }
 };
+
+export const checkDatabaseFlushed = async (
+  req: Request,
+  h: ResponseToolkit
+) => {
+  try {
+    const leaveBalanceRepository = AppDataSource.getRepository(LeaveBalance);
+    const leaveBalances = await leaveBalanceRepository.find();
+    const isFlushed = leaveBalances.length === 0;
+    return h.response({ isFlushed }).code(200);
+  } catch (error) {
+    console.error("Error checking database flush status:", error);
+    return h
+      .response({ message: "Error checking database flush status" })
+      .code(500);
+  }
+};

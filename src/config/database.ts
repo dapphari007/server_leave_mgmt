@@ -59,6 +59,12 @@ export const initializeDatabase = async (): Promise<void> => {
       }
     }
 
+    // Check for pending migrations
+    const pendingMigrations = await AppDataSource.showMigrations();
+    if (pendingMigrations) {
+      logger.info("* There are pending migrations that need to be applied");
+    }
+
     logger.info("* Database check completed, preserving all existing data");
   } catch (error) {
     logger.error("Error during database initialization:", error);

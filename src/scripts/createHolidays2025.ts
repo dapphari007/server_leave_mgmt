@@ -2,18 +2,22 @@ import { AppDataSource } from "../config/database";
 import { Holiday } from "../models";
 import logger from "../utils/logger";
 
-export const createHolidays2025 = async (): Promise<void> => {
+export const createHolidays = async (
+  closeConnection = false
+): Promise<void> => {
+  let wasInitialized = AppDataSource.isInitialized;
+
   try {
-    // Initialize database connection
+    // Initialize database connection if not already initialized
     if (!AppDataSource.isInitialized) {
       await AppDataSource.initialize();
-      logger.info("Database connection initialized in createHolidays2025");
+      logger.info("Database connection initialized in createHolidays");
     }
 
     const holidayRepository = AppDataSource.getRepository(Holiday);
 
-    // Define holidays for 2025
-    const holidays2025 = [
+    // Define holidays
+    const holidays = [
       {
         name: "New Year's Day",
         date: "2025-01-01",
@@ -97,13 +101,24 @@ export const createHolidays2025 = async (): Promise<void> => {
     let created = 0;
     let skipped = 0;
 
-    for (const holidayData of holidays2025) {
-      // Check if holiday already exists on the same date
-      const existingHoliday = await holidayRepository.findOne({
-        where: { date: new Date(holidayData.date) },
-      });
+    // First, check if any holidays already exist
+    const year = new Date("2025-01-01").getFullYear();
+    const existingHolidays = await holidayRepository.find();
+    const existingDates = existingHolidays
+      .filter((holiday) => holiday.date.getFullYear() === year)
+      .map((holiday) => holiday.date.toISOString().split("T")[0]);
 
-      if (!existingHoliday) {
+    logger.info(`Found ${existingDates.length} existing holidays`);
+
+    for (const holidayData of holidays) {
+      try {
+        // Check if this specific holiday date already exists
+        if (existingDates.includes(holidayData.date)) {
+          skipped++;
+          logger.info(`Skipped existing holiday on date: ${holidayData.date}`);
+          continue;
+        }
+
         // Create new holiday
         const holiday = new Holiday();
         holiday.name = holidayData.name;
@@ -116,35 +131,39 @@ export const createHolidays2025 = async (): Promise<void> => {
         logger.info(
           `Created holiday: ${holidayData.name} (${holidayData.date})`
         );
-      } else {
+      } catch (holidayError) {
+        // Log the error but continue with the next holiday
+        logger.error(
+          `Error processing holiday ${holidayData.name}: ${holidayError}`
+        );
         skipped++;
-        logger.info(`Skipped existing holiday on date: ${holidayData.date}`);
       }
     }
 
     logger.info(
-      `2025 holidays creation completed. Created: ${created}, Skipped: ${skipped}`
+      `Holidays creation completed. Created: ${created}, Skipped: ${skipped}, Total existing holidays: ${existingDates.length}`
     );
   } catch (error) {
-    logger.error(`Error creating 2025 holidays: ${error}`);
-    throw error;
+    logger.error(`Error creating holidays: ${error}`);
+    // Don't throw the error, just log it
   } finally {
-    // Close the connection
-    if (AppDataSource.isInitialized) {
+    // Only close the connection if we opened it and closeConnection is true
+    if (!wasInitialized && AppDataSource.isInitialized && closeConnection) {
       await AppDataSource.destroy();
+      logger.info("Database connection closed in createHolidays");
     }
   }
 };
 
 // Execute if this script is run directly
 if (require.main === module) {
-  createHolidays2025()
+  createHolidays(true) // true to close the connection when run directly
     .then(() => {
-      logger.info("2025 holidays creation script completed");
+      logger.info("Holidays creation script completed");
       process.exit(0);
     })
     .catch((error) => {
-      logger.error(`Error in 2025 holidays creation script: ${error}`);
+      logger.error(`Error in holidays creation script: ${error}`);
       process.exit(1);
     });
 }

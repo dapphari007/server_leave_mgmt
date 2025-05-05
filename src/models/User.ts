@@ -5,10 +5,16 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
+  ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import { LeaveRequest } from "./LeaveRequest";
 import { LeaveBalance } from "./LeaveBalance";
+import { Role } from "./Role";
+import { Department } from "./Department";
+import { Position } from "./Position";
 
+// Keep the enum for backward compatibility and migration
 export enum UserRole {
   SUPER_ADMIN = "super_admin",
   MANAGER = "manager",
@@ -53,6 +59,7 @@ export class User {
   @Column({ nullable: true })
   address: string;
 
+  // Keep the enum column for backward compatibility
   @Column({
     type: "enum",
     enum: UserRole,
@@ -80,11 +87,37 @@ export class User {
   @Column({ nullable: true })
   managerId: string;
 
+  // Keep the string column for backward compatibility
   @Column({ nullable: true, length: 100 })
   department: string;
 
+  // Keep the string column for backward compatibility
   @Column({ nullable: true, length: 100 })
   position: string;
+
+  // Relationship columns added in migration - all nullable
+  @Column({ nullable: true })
+  roleId?: string;
+
+  @ManyToOne(() => Role, (role) => role.users, { nullable: true })
+  @JoinColumn({ name: "roleId" })
+  roleObj?: Role;
+
+  @Column({ nullable: true })
+  departmentId?: string;
+
+  @ManyToOne(() => Department, (department) => department.users, {
+    nullable: true,
+  })
+  @JoinColumn({ name: "departmentId" })
+  departmentObj?: Department;
+
+  @Column({ nullable: true })
+  positionId?: string;
+
+  @ManyToOne(() => Position, (position) => position.users, { nullable: true })
+  @JoinColumn({ name: "positionId" })
+  positionObj?: Position;
 
   @Column({ default: true })
   isActive: boolean;
