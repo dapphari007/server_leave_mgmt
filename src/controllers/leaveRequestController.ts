@@ -5,6 +5,7 @@ import {
   LeaveRequestStatus,
   LeaveRequestType,
   User,
+  UserRole,
   LeaveType,
   LeaveBalance,
   ApprovalWorkflow,
@@ -194,8 +195,29 @@ export const createLeaveRequest = async (
     // Save leave request to database
     const savedLeaveRequest = await leaveRequestRepository.save(leaveRequest);
 
-    // Find manager to notify
-    if (user.managerId) {
+    // Find manager or HR to notify
+    // If user is super_admin, redirect to HR
+    if (user.role === UserRole.SUPER_ADMIN) {
+      // Find HR users to notify
+      const hrUsers = await userRepository.find({
+        where: { role: UserRole.HR, isActive: true },
+      });
+
+      if (hrUsers.length > 0) {
+        // Notify all HR users
+        for (const hrUser of hrUsers) {
+          await emailService.sendLeaveRequestNotification(
+            hrUser.email,
+            `${user.firstName} ${user.lastName} (Super Admin)`,
+            leaveType.name,
+            formatDate(start),
+            formatDate(end),
+            reason
+          );
+        }
+      }
+    } else if (user.managerId) {
+      // Regular flow - notify manager
       const manager = await userRepository.findOne({
         where: { id: user.managerId },
       });
@@ -368,25 +390,41 @@ export const getManagerLeaveRequests = async (
   h: ResponseToolkit
 ) => {
   try {
-    const managerId = request.auth.credentials.id;
+    const userId = request.auth.credentials.id;
+    const userRole = request.auth.credentials.role;
     const { status } = request.query as any;
 
-    // Get all users managed by this manager
-    const userRepository = AppDataSource.getRepository(User);
-    const managedUsers = await userRepository.find({
-      where: { managerId: managerId as string },
-    });
-
-    if (managedUsers.length === 0) {
-      return h
-        .response({
-          leaveRequests: [],
-          count: 0,
-        })
-        .code(200);
+    // If user is a regular employee, return their own leave requests
+    if (userRole === UserRole.EMPLOYEE) {
+      return getUserLeaveRequests(request, h);
     }
 
-    const managedUserIds = managedUsers.map((user) => user.id);
+    const userRepository = AppDataSource.getRepository(User);
+    let managedUserIds: string[] = [];
+    
+    // For HR and admins, get all users' leave requests
+    if (userRole === UserRole.HR || userRole === UserRole.SUPER_ADMIN) {
+      const allUsers = await userRepository.find();
+      managedUserIds = allUsers.map((user) => user.id);
+    } 
+    // For managers and team leads, get only their team members
+    else {
+      // Get all users managed by this manager/team lead
+      const managedUsers = await userRepository.find({
+        where: { managerId: userId as string },
+      });
+
+      if (managedUsers.length === 0) {
+        return h
+          .response({
+            leaveRequests: [],
+            count: 0,
+          })
+          .code(200);
+      }
+
+      managedUserIds = managedUsers.map((user) => user.id);
+    }
 
     // Build query
     const leaveRequestRepository = AppDataSource.getRepository(LeaveRequest);
@@ -488,7 +526,7 @@ export const updateLeaveRequestStatus = async (
 
     const isManager = requestUser.managerId === approverId;
     const isAdminOrHR =
-      approver.role === "super_admin" || approver.role === "hr";
+      approver.role === UserRole.SUPER_ADMIN || approver.role === UserRole.HR;
     const isSelfCancellation =
       leaveRequest.userId === approverId &&
       status === LeaveRequestStatus.CANCELLED;
@@ -517,8 +555,18 @@ export const updateLeaveRequestStatus = async (
       );
 
       if (applicableWorkflow) {
-        // Parse the approvalLevels JSON string into an array
-        const approvalLevels = JSON.parse(applicableWorkflow.approvalLevels);
+        // Use the approvalLevels directly as it's already a JSON object
+        const approvalLevels = applicableWorkflow.approvalLevels;
+
+        // Check if approvalLevels is an array before using find method
+        if (!Array.isArray(approvalLevels)) {
+          logger.error(`Error: approvalLevels is not an array: ${JSON.stringify(approvalLevels)}`);
+          return h
+            .response({
+              message: "An error occurred while processing approval workflow",
+            })
+            .code(500);
+        }
 
         // Check if the approver has the required level
         const requiredLevel = approvalLevels.find((level) =>

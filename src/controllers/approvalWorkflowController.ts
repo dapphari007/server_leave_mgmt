@@ -92,7 +92,7 @@ export const createApprovalWorkflow = async (
     approvalWorkflow.name = name;
     approvalWorkflow.minDays = minDays;
     approvalWorkflow.maxDays = maxDays;
-    approvalWorkflow.approvalLevels = JSON.stringify(approvalLevels);
+    approvalWorkflow.approvalLevels = approvalLevels;
     approvalWorkflow.isActive = isActive !== undefined ? isActive : true;
 
     // Save approval workflow to database
@@ -285,8 +285,7 @@ export const updateApprovalWorkflow = async (
     if (name) approvalWorkflow.name = name;
     if (minDays !== undefined) approvalWorkflow.minDays = minDays;
     if (maxDays !== undefined) approvalWorkflow.maxDays = maxDays;
-    if (approvalLevels)
-      approvalWorkflow.approvalLevels = JSON.stringify(approvalLevels);
+    if (approvalLevels) approvalWorkflow.approvalLevels = approvalLevels;
     if (isActive !== undefined) approvalWorkflow.isActive = isActive;
 
     // Save updated approval workflow

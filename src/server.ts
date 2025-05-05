@@ -5,11 +5,14 @@ import { registerRoutes } from "./routes";
 import { initializeDatabase } from "./config/database";
 import config from "./config/config";
 import logger from "./utils/logger";
+import { ensureSuperAdmin } from "./utils/ensure-superadmin";
+import { ensureInitialData } from "./utils/ensure-initial-data";
 
 const init = async () => {
   try {
     // Initialize database connection
     await initializeDatabase();
+    logger.info("Database connected successfully");
 
     // Create Hapi server
     const server = Hapi.server({
@@ -19,6 +22,9 @@ const init = async () => {
         cors: {
           origin: ["*"],
           credentials: true,
+          additionalHeaders: ["Authorization", "Content-Type"],
+          additionalExposedHeaders: ["Authorization"],
+          maxAge: 86400, // 24 hours
         },
         validate: {
           failAction: async (request, h, err) => {
@@ -46,6 +52,14 @@ const init = async () => {
 
     // Register routes
     registerRoutes(server);
+
+    // Ensure superadmin exists with correct credentials
+    await ensureSuperAdmin();
+    logger.info("Superadmin check completed");
+    
+    // Ensure initial data exists (HR, managers, leave types, etc.)
+    await ensureInitialData();
+    logger.info("Initial data check completed");
 
     // Start server
     await server.start();

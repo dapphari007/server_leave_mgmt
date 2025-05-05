@@ -89,6 +89,10 @@ export const authPlugin = {
       roles: [UserRole.SUPER_ADMIN, UserRole.HR],
     });
 
+    server.auth.strategy("team_lead", "role-based", {
+      roles: [UserRole.SUPER_ADMIN, UserRole.MANAGER, UserRole.TEAM_LEAD],
+    });
+
     server.auth.strategy("manager_hr", "role-based", {
       roles: [UserRole.SUPER_ADMIN, UserRole.MANAGER, UserRole.HR],
     });
@@ -98,6 +102,7 @@ export const authPlugin = {
         UserRole.SUPER_ADMIN,
         UserRole.MANAGER,
         UserRole.HR,
+        UserRole.TEAM_LEAD,
         UserRole.EMPLOYEE,
       ],
     });

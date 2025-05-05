@@ -57,6 +57,19 @@ const seedSuperAdmin = async (): Promise<void> => {
 
   await userRepository.save(superAdmin);
   logger.info("Super admin created successfully");
+
+  // Create team lead
+  const teamLead = new User();
+  teamLead.firstName = "Team";
+  teamLead.lastName = "Lead";
+  teamLead.email = "teamlead@example.com";
+  teamLead.password = await hashPassword("TeamLead@123");
+  teamLead.role = UserRole.TEAM_LEAD;
+  teamLead.level = UserLevel.LEVEL_2;
+  teamLead.gender = Gender.MALE;
+
+  await userRepository.save(teamLead);
+  logger.info("Team lead created successfully");
 };
 
 const seedLeaveTypes = async (): Promise<void> => {
@@ -188,6 +201,10 @@ const seedApprovalWorkflows = async (): Promise<void> => {
       approvalLevels: [
         {
           level: 1,
+          roles: [UserRole.TEAM_LEAD],
+        },
+        {
+          level: 2,
           roles: [UserRole.MANAGER],
         },
       ],
@@ -199,10 +216,14 @@ const seedApprovalWorkflows = async (): Promise<void> => {
       approvalLevels: [
         {
           level: 1,
-          roles: [UserRole.MANAGER],
+          roles: [UserRole.TEAM_LEAD],
         },
         {
           level: 2,
+          roles: [UserRole.MANAGER],
+        },
+        {
+          level: 3,
           roles: [UserRole.HR],
         },
       ],
@@ -214,14 +235,18 @@ const seedApprovalWorkflows = async (): Promise<void> => {
       approvalLevels: [
         {
           level: 1,
-          roles: [UserRole.MANAGER],
+          roles: [UserRole.TEAM_LEAD],
         },
         {
           level: 2,
-          roles: [UserRole.HR],
+          roles: [UserRole.MANAGER],
         },
         {
           level: 3,
+          roles: [UserRole.HR],
+        },
+        {
+          level: 4,
           roles: [UserRole.SUPER_ADMIN],
         },
       ],
@@ -230,12 +255,8 @@ const seedApprovalWorkflows = async (): Promise<void> => {
 
   for (const workflowData of workflows) {
     const workflow = new ApprovalWorkflow();
-    // Create a copy of the data with stringified approvalLevels
-    const processedData = {
-      ...workflowData,
-      approvalLevels: JSON.stringify(workflowData.approvalLevels),
-    };
-    Object.assign(workflow, processedData);
+    // Use the approvalLevels directly as a JSON object, not as a string
+    Object.assign(workflow, workflowData);
     await approvalWorkflowRepository.save(workflow);
   }
 

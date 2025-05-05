@@ -1,14 +1,27 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from "typeorm";
 
-@Entity('holidays')
+@Entity("holidays")
 export class Holiday {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
   name: string;
 
-  @Column({ type: 'date' })
+  @Column({
+    type: "date",
+    transformer: {
+      to: (value: Date) => value,
+      from: (value: string | Date) =>
+        value instanceof Date ? value : new Date(value),
+    },
+  })
   date: Date;
 
   @Column({ nullable: true })

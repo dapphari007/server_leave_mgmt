@@ -14,7 +14,9 @@ export const getManagerDashboard = async (
 
     // Get all users managed by this manager
     const userRepository = AppDataSource.getRepository(User);
-    const managedUsers = await userRepository.find({ where: { managerId: managerId as string } });
+    const managedUsers = await userRepository.find({
+      where: { managerId: managerId as string },
+    });
 
     if (managedUsers.length === 0) {
       return h
@@ -244,11 +246,11 @@ export const getEmployeeDashboard = async (
         lt.name as leaveType,
         lb.balance,
         lb.used,
-        lb.carryForward,
-        (lb.balance + lb.carryForward - lb.used) as remaining
+        lb."carryForward",
+        (lb.balance + lb."carryForward" - lb.used) as remaining
       FROM leave_balances lb
-      JOIN leave_types lt ON lb.leaveTypeId = lt.id
-      WHERE lb.userId = $1 AND lb.year = $2
+      JOIN leave_types lt ON lb."leaveTypeId" = lt.id
+      WHERE lb."userId" = $1 AND lb.year = $2
     `,
       [userId, currentYear]
     );

@@ -22,7 +22,10 @@ export class ApprovalWorkflow {
   maxDays: number;
 
   @Column({ type: "jsonb" })
-  approvalLevels: string;
+  approvalLevels: {
+    level: number;
+    roles: UserRole[];
+  }[];
 
   @Column({ default: true })
   isActive: boolean;
