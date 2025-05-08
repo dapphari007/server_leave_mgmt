@@ -19,6 +19,12 @@ import { createDefaultDepartments } from "./scripts/createDefaultDepartments";
 import { createDefaultPositions } from "./scripts/createDefaultPositions";
 import { createDefaultRoles } from "./scripts/createDefaultRoles";
 import { setupDefaultData } from "./scripts/setupDefaultData";
+import { initializeWorkflows } from "./services/workflowInitService";
+import { showRoles } from "./scripts/showRoles";
+import { createCustomRole } from "./scripts/manageRoles";
+import { syncEssentialData } from "./scripts/syncEssentialData";
+import { checkEssentialData } from "./scripts/checkEssentialData";
+import { initializeSystem } from "./scripts/initializeSystem";
 
 const init = async () => {
   try {
@@ -84,17 +90,21 @@ const init = async () => {
     // Register routes
     registerRoutes(server);
 
-    // Run migrations if needed with better error handling
+    // Run migrations if needed with improved error handling
     try {
-      // Use TypeORM's built-in migration runner instead of custom implementation
+      // Use our improved migration runner
       logger.info("Checking for pending migrations...");
       const pendingMigrations = await AppDataSource.showMigrations();
 
       if (pendingMigrations) {
         logger.info("Running pending migrations...");
         try {
-          // This will run all pending migrations in the correct order
-          await AppDataSource.runMigrations({ transaction: "each" });
+          // Import the runMigrations function
+          const { runMigrations } = require("./scripts/runMigrations");
+          
+          // Run migrations with improved error handling
+          await runMigrations(false); // Don't close the connection
+          
           logger.info("Migrations completed successfully");
 
           // Add a small delay to ensure database is in a consistent state
@@ -269,6 +279,59 @@ const init = async () => {
       logger.error("Error creating holidays:", error);
       // Continue with server initialization even if holiday creation fails
     }
+    
+    // Initialize approval workflows
+    try {
+      // First check if the migration has been applied
+      let workflowMigrationApplied = false;
+      try {
+        const result = await AppDataSource.query(
+          `SELECT * FROM migrations WHERE name LIKE '%UpdateApprovalWorkflowDaysToFloat%'`
+        );
+        workflowMigrationApplied = result && result.length > 0;
+      } catch (migrationError) {
+        logger.warn("Error checking migration status:", migrationError);
+        // If we can't check migrations, we'll assume it's not applied
+      }
+      
+      if (await tablesExist(["approval_workflows"])) {
+        if (workflowMigrationApplied) {
+          logger.info("Workflow migration has been applied, initializing workflows...");
+          await initializeWorkflows();
+          console.log("Approval workflows initialization completed");
+        } else {
+          logger.warn(
+            "Workflow migration not yet applied. Will attempt to run the migration..."
+          );
+          
+          try {
+            // Try to run the migration directly
+            await AppDataSource.query(`
+              -- First, delete any existing workflows to avoid conversion issues
+              DELETE FROM "approval_workflows";
+              
+              -- Alter the column types from integer to float
+              ALTER TABLE "approval_workflows" ALTER COLUMN "minDays" TYPE float;
+              ALTER TABLE "approval_workflows" ALTER COLUMN "maxDays" TYPE float;
+            `);
+            
+            logger.info("Successfully applied workflow column type changes. Initializing workflows...");
+            await initializeWorkflows();
+            console.log("Approval workflows initialization completed after manual migration");
+          } catch (migrationError) {
+            logger.error("Failed to manually apply workflow column changes:", migrationError);
+            logger.warn("Skipping workflow initialization until migration is properly applied");
+          }
+        }
+      } else {
+        logger.warn(
+          "Approval workflows table not available yet, skipping workflows initialization"
+        );
+      }
+    } catch (error) {
+      logger.error("Error initializing approval workflows:", error);
+      // Continue with server initialization even if workflow initialization fails
+    }
 
     // Create a test user for login
     try {
@@ -301,6 +364,14 @@ const init = async () => {
     // Start server
     await server.start();
     logger.info(`Server running on ${server.info.uri}`);
+    
+    // Run comprehensive system initialization
+    try {
+      await initializeSystem();
+      logger.info("System initialization completed successfully");
+    } catch (initError) {
+      logger.error("Error during system initialization:", initError);
+    }
 
     // Handle unhandled rejections
     process.on("unhandledRejection", (err) => {
@@ -333,3 +404,6 @@ if (require.main === module) {
 }
 
 export default init;
+
+// Export role management and synchronization functions for easy access
+export { showRoles, createCustomRole, syncEssentialData, checkEssentialData };

@@ -11,6 +11,7 @@ import roleRoutes from "./roleRoutes";
 import departmentRoutes from "./departmentRoutes";
 import positionRoutes from "./positionRoutes";
 import pageRoutes from "./pageRoutes";
+import scriptRoutes from "./scriptRoutes";
 
 export const registerRoutes = (server: Server): void => {
   server.route([
@@ -26,6 +27,7 @@ export const registerRoutes = (server: Server): void => {
     ...departmentRoutes,
     ...positionRoutes,
     ...pageRoutes,
+    ...scriptRoutes,
     // Health check route
     {
       method: "GET",

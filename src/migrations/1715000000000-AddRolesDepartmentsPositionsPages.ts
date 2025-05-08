@@ -45,6 +45,7 @@ export class AddRolesDepartmentsPositionsPages1715000000000
                 "description" character varying(255),
                 "isActive" boolean NOT NULL DEFAULT true,
                 "departmentId" uuid,
+                "level" integer NOT NULL DEFAULT 1,
                 "createdAt" TIMESTAMP NOT NULL DEFAULT now(),
                 "updatedAt" TIMESTAMP NOT NULL DEFAULT now(),
                 CONSTRAINT "PK_positions" PRIMARY KEY ("id")

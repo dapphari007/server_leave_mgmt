@@ -1,6 +1,6 @@
 import { ServerRoute } from "@hapi/hapi";
 import {
-  getPositions,
+  getAllPositions,
   getPositionById,
   createPosition,
   updatePosition,
@@ -11,7 +11,7 @@ const positionRoutes: ServerRoute[] = [
   {
     method: "GET",
     path: "/api/positions",
-    handler: getPositions,
+    handler: getAllPositions,
     options: {
       auth: "all_roles",
       description: "Get all positions",

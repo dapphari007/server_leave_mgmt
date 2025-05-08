@@ -8,23 +8,31 @@ export const createDepartment = async (
   h: ResponseToolkit
 ) => {
   try {
+    console.log("createDepartment called with payload:", request.payload);
+    
     // Ensure database connection is established before proceeding
     await ensureDatabaseConnection();
+    console.log("Database connection established");
 
     const { name, description, managerId, isActive } = request.payload as any;
+    console.log("Parsed payload:", { name, description, managerId, isActive });
 
     // Validate input
     if (!name) {
+      console.log("Validation failed: Department name is required");
       return h.response({ message: "Department name is required" }).code(400);
     }
 
     // Check if department already exists
     const departmentRepository = AppDataSource.getRepository(Department);
+    console.log("Checking if department already exists with name:", name);
+    
     const existingDepartment = await departmentRepository.findOne({
       where: { name },
     });
 
     if (existingDepartment) {
+      console.log("Department already exists:", existingDepartment);
       return h
         .response({ message: "Department with this name already exists" })
         .code(409);
@@ -32,24 +40,34 @@ export const createDepartment = async (
 
     // Validate manager if provided
     if (managerId) {
+      console.log("Validating manager with ID:", managerId);
       const userRepository = AppDataSource.getRepository(User);
       const manager = await userRepository.findOne({
         where: { id: managerId },
       });
+      
       if (!manager) {
+        console.log("Manager not found with ID:", managerId);
         return h.response({ message: "Manager not found" }).code(404);
       }
+      
+      console.log("Manager found:", manager);
     }
 
     // Create new department
+    console.log("Creating new department");
     const department = new Department();
     department.name = name;
     department.description = description || null;
     department.managerId = managerId || null;
     department.isActive = isActive !== undefined ? isActive : true;
 
+    console.log("Department object created:", department);
+
     // Save department to database
+    console.log("Saving department to database");
     const savedDepartment = await departmentRepository.save(department);
+    console.log("Department saved successfully:", savedDepartment);
 
     return h
       .response({
@@ -58,9 +76,23 @@ export const createDepartment = async (
       })
       .code(201);
   } catch (error) {
+    console.error("Error creating department:", error);
+    
+    // Log detailed error information
+    if (error instanceof Error) {
+      console.error("Error details:", {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      });
+    }
+    
     logger.error(`Error in createDepartment: ${error}`);
     return h
-      .response({ message: "An error occurred while creating the department" })
+      .response({ 
+        message: "An error occurred while creating the department",
+        error: error instanceof Error ? error.message : String(error)
+      })
       .code(500);
   }
 };
@@ -70,8 +102,11 @@ export const getAllDepartments = async (
   h: ResponseToolkit
 ) => {
   try {
+    console.log("getAllDepartments called with query:", request.query);
+    
     // Ensure database connection is established before proceeding
     await ensureDatabaseConnection();
+    console.log("Database connection established");
 
     const { isActive } = request.query as any;
 
@@ -81,15 +116,28 @@ export const getAllDepartments = async (
 
     if (isActive !== undefined) {
       query.isActive = isActive === "true";
+      console.log("Filtering by isActive:", isActive);
     }
 
+    console.log("Executing department query with:", { query });
+    
     // Get departments
     const departments = await departmentRepository.find({
       where: query,
+      relations: ["manager"],
       order: {
         name: "ASC",
       },
     });
+
+    console.log(`Found ${departments.length} departments`);
+    
+    // Log the first few departments for debugging
+    if (departments.length > 0) {
+      console.log("First department:", JSON.stringify(departments[0]));
+    } else {
+      console.log("No departments found");
+    }
 
     return h
       .response({
@@ -98,9 +146,23 @@ export const getAllDepartments = async (
       })
       .code(200);
   } catch (error) {
+    console.error("Error fetching departments:", error);
+    
+    // Log detailed error information
+    if (error instanceof Error) {
+      console.error("Error details:", {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      });
+    }
+    
     logger.error(`Error in getAllDepartments: ${error}`);
     return h
-      .response({ message: "An error occurred while fetching departments" })
+      .response({ 
+        message: "An error occurred while fetching departments",
+        error: error instanceof Error ? error.message : String(error)
+      })
       .code(500);
   }
 };

@@ -1,6 +1,6 @@
 import { ServerRoute } from "@hapi/hapi";
 import {
-  getRoles,
+  getAllRoles,
   getRoleById,
   createRole,
   updateRole,
@@ -11,7 +11,7 @@ const roleRoutes: ServerRoute[] = [
   {
     method: "GET",
     path: "/api/roles",
-    handler: getRoles,
+    handler: getAllRoles,
     options: {
       auth: "manager_hr",
       description: "Get all roles",

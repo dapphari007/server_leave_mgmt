@@ -27,6 +27,17 @@ export const createDefaultPositions = async (closeConnection = true) => {
       }
       return;
     }
+    
+    // Check if level column exists in the positions table
+    let hasLevelColumn = false;
+    try {
+      // Try to get the metadata for the Position entity
+      const positionMetadata = AppDataSource.getMetadata(Position);
+      hasLevelColumn = positionMetadata.columns.some(column => column.propertyName === 'level');
+      logger.info(`Level column ${hasLevelColumn ? 'exists' : 'does not exist'} in positions table`);
+    } catch (error) {
+      logger.warn("Could not check if level column exists:", error);
+    }
 
     const defaultPositions = [
       // Human Resources Positions
@@ -194,7 +205,24 @@ export const createDefaultPositions = async (closeConnection = true) => {
       },
     ];
 
-    await positionRepository.save(defaultPositions);
+    // Filter out the level property if the column doesn't exist
+    const positionsToSave = defaultPositions.map(pos => {
+      const position = {
+        name: pos.name,
+        description: pos.description,
+        departmentId: pos.departmentId,
+        isActive: true
+      };
+      
+      // Only include level if the column exists
+      if (hasLevelColumn) {
+        position['level'] = pos.level || 1;
+      }
+      
+      return position;
+    });
+    
+    await positionRepository.save(positionsToSave);
     logger.info("Default positions created successfully");
 
     if (closeConnection) {

@@ -15,16 +15,19 @@ export class ApprovalWorkflow {
   @Column()
   name: string;
 
-  @Column({ type: "int" })
+  @Column({ type: "float" })
   minDays: number;
 
-  @Column({ type: "int" })
+  @Column({ type: "float" })
   maxDays: number;
 
   @Column({ type: "jsonb" })
   approvalLevels: {
     level: number;
-    roles: UserRole[];
+    roles?: UserRole[];
+    approverType?: string;
+    fallbackRoles?: UserRole[];
+    departmentSpecific?: boolean;
   }[];
 
   @Column({ default: true })

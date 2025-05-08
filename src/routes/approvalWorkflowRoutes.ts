@@ -7,7 +7,7 @@ const approvalWorkflowRoutes: ServerRoute[] = [
     path: "/api/approval-workflows",
     handler: ApprovalWorkflowController.createApprovalWorkflow,
     options: {
-      auth: "super_admin",
+      auth: { strategies: ["super_admin", "admin"] },
       description: "Create a new approval workflow",
       tags: ["api", "approval-workflows"],
     },
@@ -17,7 +17,7 @@ const approvalWorkflowRoutes: ServerRoute[] = [
     path: "/api/approval-workflows",
     handler: ApprovalWorkflowController.getAllApprovalWorkflows,
     options: {
-      auth: "manager_hr",
+      auth: { strategies: ["super_admin", "manager_hr", "admin"] },
       description: "Get all approval workflows",
       tags: ["api", "approval-workflows"],
     },
@@ -27,7 +27,7 @@ const approvalWorkflowRoutes: ServerRoute[] = [
     path: "/api/approval-workflows/{id}",
     handler: ApprovalWorkflowController.getApprovalWorkflowById,
     options: {
-      auth: "manager_hr",
+      auth: { strategies: ["super_admin", "manager_hr", "admin"] },
       description: "Get approval workflow by ID",
       tags: ["api", "approval-workflows"],
     },
@@ -37,7 +37,7 @@ const approvalWorkflowRoutes: ServerRoute[] = [
     path: "/api/approval-workflows/{id}",
     handler: ApprovalWorkflowController.updateApprovalWorkflow,
     options: {
-      auth: "super_admin",
+      auth: { strategies: ["super_admin", "admin"] },
       description: "Update approval workflow",
       tags: ["api", "approval-workflows"],
     },
@@ -47,7 +47,7 @@ const approvalWorkflowRoutes: ServerRoute[] = [
     path: "/api/approval-workflows/{id}",
     handler: ApprovalWorkflowController.deleteApprovalWorkflow,
     options: {
-      auth: "super_admin",
+      auth: { strategies: ["super_admin", "admin"] },
       description: "Delete approval workflow",
       tags: ["api", "approval-workflows"],
     },
@@ -57,9 +57,9 @@ const approvalWorkflowRoutes: ServerRoute[] = [
     path: "/api/approval-workflows/initialize-defaults",
     handler: ApprovalWorkflowController.initializeDefaultApprovalWorkflows,
     options: {
-      auth: "super_admin",
+      auth: { strategies: ["super_admin", "admin"] },
       description:
-        "Initialize default approval workflows with team lead at L-2",
+        "Initialize default approval workflows with team lead at L-1",
       tags: ["api", "approval-workflows"],
     },
   },

@@ -3,6 +3,7 @@ import { AppDataSource } from "../config/database";
 import { User, UserRole, UserLevel } from "../models";
 import { hashPassword, validateEmail, validatePassword } from "../utils/auth";
 import logger from "../utils/logger";
+import { In } from "typeorm";
 
 export const createUser = async (request: Request, h: ResponseToolkit) => {
   try {
@@ -23,6 +24,8 @@ export const createUser = async (request: Request, h: ResponseToolkit) => {
       level,
       gender,
       managerId,
+      hrId,
+      teamLeadId,
       department,
       position,
     } = request.payload as any;
@@ -103,6 +106,8 @@ export const createUser = async (request: Request, h: ResponseToolkit) => {
     user.level = level || UserLevel.LEVEL_1;
     user.gender = gender || null;
     user.managerId = managerId || null;
+    user.hrId = hrId || null;
+    user.teamLeadId = teamLeadId || null;
     user.department = department || null;
     user.position = position || null;
 
@@ -148,18 +153,56 @@ export const getAllUsers = async (request: Request, h: ResponseToolkit) => {
       query.isActive = isActive === "true";
     }
 
-    // Get users
+    // Get users with relations
     const users = await userRepository.find({
       where: query,
+      relations: ["roleObj", "departmentObj", "positionObj"],
       order: {
         createdAt: "DESC",
       },
     });
 
-    // Remove passwords from response
-    const usersWithoutPasswords = users.map((user) => {
+    // Collect all related user IDs (managers, HRs, team leads)
+    const relatedUserIds = new Set<string>();
+    users.forEach(user => {
+      if (user.managerId) relatedUserIds.add(user.managerId);
+      if (user.hrId) relatedUserIds.add(user.hrId);
+      if (user.teamLeadId) relatedUserIds.add(user.teamLeadId);
+    });
+    
+    // Fetch all related users in a single query
+    const relatedUsers = await userRepository.find({
+      where: { id: In([...relatedUserIds]) },
+      select: ["id", "firstName", "lastName", "email", "role"]
+    });
+    
+    // Create a map for quick lookup
+    const relatedUserMap = new Map();
+    relatedUsers.forEach(user => {
+      relatedUserMap.set(user.id, user);
+    });
+
+    // Remove passwords from response and add related user details
+    const usersWithoutPasswords = users.map(user => {
       const { password, ...userWithoutPassword } = user;
-      return userWithoutPassword;
+      
+      // Create a result object with additional properties
+      const result: any = { ...userWithoutPassword };
+      
+      // Add manager, HR, and team lead details if they exist
+      if (user.managerId && relatedUserMap.has(user.managerId)) {
+        result.manager = relatedUserMap.get(user.managerId);
+      }
+      
+      if (user.hrId && relatedUserMap.has(user.hrId)) {
+        result.hr = relatedUserMap.get(user.hrId);
+      }
+      
+      if (user.teamLeadId && relatedUserMap.has(user.teamLeadId)) {
+        result.teamLead = relatedUserMap.get(user.teamLeadId);
+      }
+      
+      return result;
     });
 
     return h
@@ -188,7 +231,10 @@ export const getUserById = async (request: Request, h: ResponseToolkit) => {
 
     // Get user
     const userRepository = AppDataSource.getRepository(User);
-    const user = await userRepository.findOne({ where: { id } });
+    const user = await userRepository.findOne({ 
+      where: { id },
+      relations: ["roleObj", "departmentObj", "positionObj"]
+    });
 
     if (!user) {
       return h.response({ message: "User not found" }).code(404);
@@ -196,10 +242,46 @@ export const getUserById = async (request: Request, h: ResponseToolkit) => {
 
     // Remove password from response
     const { password, ...userWithoutPassword } = user;
-
+    
+    // Create a result object with additional properties
+    const result: any = { ...userWithoutPassword };
+    
+    // Collect all related user IDs (manager, HR, team lead)
+    const relatedUserIds = [];
+    if (user.managerId) relatedUserIds.push(user.managerId);
+    if (user.hrId) relatedUserIds.push(user.hrId);
+    if (user.teamLeadId) relatedUserIds.push(user.teamLeadId);
+    
+    if (relatedUserIds.length > 0) {
+      // Fetch all related users in a single query
+      const relatedUsers = await userRepository.find({
+        where: { id: In(relatedUserIds) },
+        select: ["id", "firstName", "lastName", "email", "role"]
+      });
+      
+      // Create a map for quick lookup
+      const relatedUserMap = new Map();
+      relatedUsers.forEach(relatedUser => {
+        relatedUserMap.set(relatedUser.id, relatedUser);
+      });
+      
+      // Add manager, HR, and team lead details if they exist
+      if (user.managerId && relatedUserMap.has(user.managerId)) {
+        result.manager = relatedUserMap.get(user.managerId);
+      }
+      
+      if (user.hrId && relatedUserMap.has(user.hrId)) {
+        result.hr = relatedUserMap.get(user.hrId);
+      }
+      
+      if (user.teamLeadId && relatedUserMap.has(user.teamLeadId)) {
+        result.teamLead = relatedUserMap.get(user.teamLeadId);
+      }
+    }
+    
     return h
       .response({
-        user: userWithoutPassword,
+        user: result,
       })
       .code(200);
   } catch (error) {
@@ -228,6 +310,8 @@ export const updateUser = async (request: Request, h: ResponseToolkit) => {
       level,
       isActive,
       managerId,
+      hrId,
+      teamLeadId,
       department,
       position,
     } = request.payload as any;
@@ -275,6 +359,50 @@ export const updateUser = async (request: Request, h: ResponseToolkit) => {
       }
     }
 
+    // Validate HR if provided
+    if (hrId) {
+      const hr = await userRepository.findOne({
+        where: { id: hrId },
+      });
+      if (!hr) {
+        return h.response({ message: "HR not found" }).code(404);
+      }
+
+      // Check if HR has appropriate role
+      if (hr.role !== UserRole.HR) {
+        return h.response({ message: "Invalid HR role" }).code(400);
+      }
+
+      // Prevent circular relationships
+      if (hrId === id) {
+        return h
+          .response({ message: "A user cannot be their own HR" })
+          .code(400);
+      }
+    }
+
+    // Validate Team Lead if provided
+    if (teamLeadId) {
+      const teamLead = await userRepository.findOne({
+        where: { id: teamLeadId },
+      });
+      if (!teamLead) {
+        return h.response({ message: "Team Lead not found" }).code(404);
+      }
+
+      // Check if Team Lead has appropriate role
+      if (teamLead.role !== UserRole.TEAM_LEAD) {
+        return h.response({ message: "Invalid Team Lead role" }).code(400);
+      }
+
+      // Prevent circular relationships
+      if (teamLeadId === id) {
+        return h
+          .response({ message: "A user cannot be their own Team Lead" })
+          .code(400);
+      }
+    }
+
     // Update user fields
     if (firstName) user.firstName = firstName;
     if (lastName) user.lastName = lastName;
@@ -284,6 +412,8 @@ export const updateUser = async (request: Request, h: ResponseToolkit) => {
     if (level) user.level = level;
     if (isActive !== undefined) user.isActive = isActive;
     if (managerId !== undefined) user.managerId = managerId;
+    if (hrId !== undefined) user.hrId = hrId;
+    if (teamLeadId !== undefined) user.teamLeadId = teamLeadId;
     if (department !== undefined) user.department = department;
     if (position !== undefined) user.position = position;
 

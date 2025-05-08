@@ -62,6 +62,23 @@ export const getCurrentYear = (): number => {
   return new Date().getFullYear();
 };
 
-export const formatDate = (date: Date): string => {
-  return date.toISOString().split("T")[0];
+export const formatDate = (date: Date | string): string => {
+  try {
+    // If date is a string, convert it to a Date object
+    const dateObj = typeof date === 'string' ? new Date(date) : date;
+    
+    // Check if the date is valid
+    if (isNaN(dateObj.getTime())) {
+      throw new Error('Invalid date');
+    }
+    
+    return dateObj.toISOString().split("T")[0];
+  } catch (error) {
+    // If there's an error, return a fallback format or the original string
+    if (typeof date === 'string') {
+      return date;
+    }
+    // If it's not a string and still invalid, return a default value
+    return 'Invalid date';
+  }
 };

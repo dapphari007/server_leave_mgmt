@@ -5,15 +5,16 @@ import logger from "../utils/logger";
 import { LessThanOrEqual, MoreThanOrEqual, Not } from "typeorm";
 
 // Default approval workflows configuration
-const DEFAULT_APPROVAL_WORKFLOWS = [
+export const DEFAULT_APPROVAL_WORKFLOWS = [
   {
-    name: "Short Leave (1-2 days)",
+    name: "Short Leave (0.5-2 days)",
     minDays: 0.5,
     maxDays: 2,
     approvalLevels: [
       {
-        level: 2, // L-2 (Team Lead)
-        roles: [UserRole.TEAM_LEAD],
+        level: 1, // L-1 (Team Lead)
+        approverType: "teamLead",
+        fallbackRoles: [UserRole.TEAM_LEAD],
       },
     ],
   },
@@ -23,12 +24,14 @@ const DEFAULT_APPROVAL_WORKFLOWS = [
     maxDays: 5,
     approvalLevels: [
       {
-        level: 2, // L-2 (Team Lead)
-        roles: [UserRole.TEAM_LEAD],
+        level: 1, // L-1 (Team Lead)
+        approverType: "teamLead",
+        fallbackRoles: [UserRole.TEAM_LEAD],
       },
       {
-        level: 3, // L-3 (Manager)
-        roles: [UserRole.MANAGER],
+        level: 2, // L-2 (Manager)
+        approverType: "manager",
+        fallbackRoles: [UserRole.MANAGER],
       },
     ],
   },
@@ -38,16 +41,19 @@ const DEFAULT_APPROVAL_WORKFLOWS = [
     maxDays: 10,
     approvalLevels: [
       {
-        level: 2, // L-2 (Team Lead)
-        roles: [UserRole.TEAM_LEAD],
+        level: 1, // L-1 (Team Lead)
+        approverType: "teamLead",
+        fallbackRoles: [UserRole.TEAM_LEAD],
       },
       {
-        level: 3, // L-3 (Manager)
-        roles: [UserRole.MANAGER],
+        level: 2, // L-2 (Manager)
+        approverType: "manager",
+        fallbackRoles: [UserRole.MANAGER],
       },
       {
-        level: 4, // L-4 (HR)
-        roles: [UserRole.HR],
+        level: 3, // L-3 (HR)
+        approverType: "hr",
+        fallbackRoles: [UserRole.HR],
       },
     ],
   },
@@ -57,20 +63,24 @@ const DEFAULT_APPROVAL_WORKFLOWS = [
     maxDays: 20,
     approvalLevels: [
       {
-        level: 2, // L-2 (Team Lead)
-        roles: [UserRole.TEAM_LEAD],
+        level: 1, // L-1 (Team Lead)
+        approverType: "teamLead",
+        fallbackRoles: [UserRole.TEAM_LEAD],
       },
       {
-        level: 3, // L-3 (Manager)
-        roles: [UserRole.MANAGER],
+        level: 2, // L-2 (Manager)
+        approverType: "manager",
+        fallbackRoles: [UserRole.MANAGER],
       },
       {
-        level: 4, // L-4 (HR)
-        roles: [UserRole.HR],
+        level: 3, // L-3 (HR)
+        approverType: "hr",
+        fallbackRoles: [UserRole.HR],
       },
       {
-        level: 5, // L-5 (Super Admin)
-        roles: [UserRole.SUPER_ADMIN],
+        level: 4, // L-4 (Super Admin)
+        approverType: "superAdmin",
+        fallbackRoles: [UserRole.SUPER_ADMIN],
       },
     ],
   },
@@ -80,20 +90,24 @@ const DEFAULT_APPROVAL_WORKFLOWS = [
     maxDays: 365,
     approvalLevels: [
       {
-        level: 2, // L-2 (Team Lead)
-        roles: [UserRole.TEAM_LEAD],
+        level: 1, // L-1 (Team Lead)
+        approverType: "teamLead",
+        fallbackRoles: [UserRole.TEAM_LEAD],
       },
       {
-        level: 3, // L-3 (Manager)
-        roles: [UserRole.MANAGER],
+        level: 2, // L-2 (Manager)
+        approverType: "manager",
+        fallbackRoles: [UserRole.MANAGER],
       },
       {
-        level: 4, // L-4 (HR)
-        roles: [UserRole.HR],
+        level: 3, // L-3 (HR)
+        approverType: "hr",
+        fallbackRoles: [UserRole.HR],
       },
       {
-        level: 5, // L-5 (Super Admin)
-        roles: [UserRole.SUPER_ADMIN],
+        level: 4, // L-4 (Super Admin)
+        approverType: "superAdmin",
+        fallbackRoles: [UserRole.SUPER_ADMIN],
       },
     ],
   },
@@ -124,6 +138,13 @@ export const createApprovalWorkflow = async (
     if (minDays < 0 || maxDays < 0) {
       return h
         .response({ message: "minDays and maxDays must be non-negative" })
+        .code(400);
+    }
+    
+    // Validate that minDays is either a whole number or 0.5 (half day)
+    if (minDays !== Math.floor(minDays) && minDays !== 0.5) {
+      return h
+        .response({ message: "minDays must be either a whole number or 0.5 for half-day" })
         .code(400);
     }
 
@@ -359,6 +380,13 @@ export const updateApprovalWorkflow = async (
           .response({ message: "minDays and maxDays must be non-negative" })
           .code(400);
       }
+      
+      // Validate that minDays is either a whole number or 0.5 (half day)
+      if (newMinDays !== Math.floor(newMinDays) && newMinDays !== 0.5) {
+        return h
+          .response({ message: "minDays must be either a whole number or 0.5 for half-day" })
+          .code(400);
+      }
 
       if (newMinDays > newMaxDays) {
         return h
@@ -460,7 +488,7 @@ export const deleteApprovalWorkflow = async (
 };
 
 /**
- * Initialize default approval workflows with team lead at L-2 and multi-level approvals
+ * Initialize default approval workflows with team lead at L-1 and multi-level approvals
  * based on leave days
  */
 export const initializeDefaultApprovalWorkflows = async (

@@ -16,6 +16,7 @@ export enum LeaveRequestStatus {
   REJECTED = "rejected",
   CANCELLED = "cancelled",
   PARTIALLY_APPROVED = "partially_approved",
+  PENDING_DELETION = "pending_deletion",
 }
 
 export enum LeaveRequestType {
@@ -98,6 +99,13 @@ export class LeaveRequest {
       approvedAt: Date;
       comments?: string;
     }[];
+    // Deletion request metadata
+    originalStatus?: string;
+    deletionRequestedBy?: string;
+    deletionRequestedAt?: Date;
+    deletionRejectedBy?: string;
+    deletionRejectedAt?: Date;
+    deletionRejectionComments?: string;
   };
 
   @CreateDateColumn()

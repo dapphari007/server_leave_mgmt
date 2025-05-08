@@ -8,7 +8,7 @@ export const createPosition = async (request: Request, h: ResponseToolkit) => {
     // Ensure database connection is established before proceeding
     await ensureDatabaseConnection();
 
-    const { name, description, departmentId, isActive } =
+    const { name, description, departmentId, isActive, level } =
       request.payload as any;
 
     // Validate input
@@ -53,6 +53,7 @@ export const createPosition = async (request: Request, h: ResponseToolkit) => {
     position.description = description || null;
     position.departmentId = departmentId || null;
     position.isActive = isActive !== undefined ? isActive : true;
+    position.level = level !== undefined ? level : 1;
 
     // Save position to database
     const savedPosition = await positionRepository.save(position);
@@ -73,8 +74,12 @@ export const createPosition = async (request: Request, h: ResponseToolkit) => {
 
 export const getAllPositions = async (request: Request, h: ResponseToolkit) => {
   try {
+    console.log("getAllPositions called");
+    console.log("Request query:", request.query);
+    
     // Ensure database connection is established before proceeding
     await ensureDatabaseConnection();
+    console.log("Database connection established");
 
     const { departmentId, isActive } = request.query as any;
 
@@ -84,12 +89,16 @@ export const getAllPositions = async (request: Request, h: ResponseToolkit) => {
 
     if (departmentId) {
       query.departmentId = departmentId;
+      console.log("Filtering by departmentId:", departmentId);
     }
 
     if (isActive !== undefined) {
       query.isActive = isActive === "true";
+      console.log("Filtering by isActive:", isActive);
     }
 
+    console.log("Executing position query with:", { query });
+    
     // Get positions
     const positions = await positionRepository.find({
       where: query,
@@ -99,6 +108,41 @@ export const getAllPositions = async (request: Request, h: ResponseToolkit) => {
       },
     });
 
+    console.log(`Found ${positions.length} positions`);
+    
+    // Log the first few positions for debugging
+    if (positions.length > 0) {
+      console.log("First position:", JSON.stringify(positions[0]));
+    } else {
+      console.log("No positions found");
+      
+      // Check if there are any positions in the database
+      const totalPositions = await positionRepository.count();
+      console.log(`Total positions in database: ${totalPositions}`);
+      
+      if (totalPositions === 0) {
+        // If no positions exist, create default positions
+        console.log("No positions found in database, creating default positions");
+        const { syncPositions } = require("../scripts/sync-positions");
+        await syncPositions();
+        
+        // Try to fetch positions again
+        const newPositions = await positionRepository.find({
+          relations: ["department"],
+          order: { name: "ASC" },
+        });
+        
+        console.log(`Created ${newPositions.length} default positions`);
+        
+        return h
+          .response({
+            positions: newPositions,
+            count: newPositions.length,
+          })
+          .code(200);
+      }
+    }
+
     return h
       .response({
         positions,
@@ -107,8 +151,12 @@ export const getAllPositions = async (request: Request, h: ResponseToolkit) => {
       .code(200);
   } catch (error) {
     logger.error(`Error in getAllPositions: ${error}`);
+    console.error("Error fetching positions:", error);
     return h
-      .response({ message: "An error occurred while fetching positions" })
+      .response({ 
+        message: "An error occurred while fetching positions",
+        error: error.message 
+      })
       .code(500);
   }
 };
@@ -144,7 +192,7 @@ export const updatePosition = async (request: Request, h: ResponseToolkit) => {
     await ensureDatabaseConnection();
 
     const { id } = request.params;
-    const { name, description, departmentId, isActive } =
+    const { name, description, departmentId, isActive, level } =
       request.payload as any;
 
     // Get position
@@ -197,6 +245,7 @@ export const updatePosition = async (request: Request, h: ResponseToolkit) => {
     if (description !== undefined) position.description = description;
     if (departmentId !== undefined) position.departmentId = departmentId;
     if (isActive !== undefined) position.isActive = isActive;
+    if (level !== undefined) position.level = level;
 
     // Save updated position
     const updatedPosition = await positionRepository.save(position);

@@ -923,3 +923,1048 @@
 2025-05-05T17:12:19.049Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
 2025-05-05T17:12:20.081Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
 2025-05-05T17:12:48.329Z [error]: Response: OPTIONS /api/api/roles - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:43:50.971Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T05:43:50.972Z [error]: Response: GET /api/roles - Status: 500 - Time: 41ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T05:43:51.987Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T05:43:51.987Z [error]: Response: GET /api/roles - Status: 500 - Time: 2ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T05:44:08.903Z [error]: Error in getEmployeeDashboard: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-06T05:44:08.904Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 6ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-06T05:44:09.914Z [error]: Error in getEmployeeDashboard: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-06T05:44:09.915Z [error]: Response: GET /api/dashboard/employee - Status: 500 - Time: 4ms - Error: {"message":"An error occurred while fetching dashboard data"}
+2025-05-06T05:44:22.331Z [error]: Error in createLeaveRequest: QueryFailedError: column LeaveRequest.metadata does not exist
+2025-05-06T05:44:22.331Z [error]: Response: POST /api/leave-requests - Status: 500 - Time: 11ms - Error: {"message":"An error occurred while creating the leave request"}
+2025-05-06T05:46:08.775Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T05:46:59.178Z [error]: Error in updateLeaveRequestStatus: QueryFailedError: invalid input syntax for type numeric: "0.01.0"
+2025-05-06T05:46:59.179Z [error]: Error details: {"query":"UPDATE \"leave_balances\" SET \"used\" = $1, \"updatedAt\" = CURRENT_TIMESTAMP WHERE \"id\" IN ($2) RETURNING \"updatedAt\"","parameters":["0.01.0","fbbeed6d-d3cc-412b-9a2f-c1796dafe974"],"driverError":{"length":147,"name":"error","severity":"ERROR","code":"22P02","where":"unnamed portal parameter $1 = '...'","file":"numeric.c","line":"7222","routine":"set_var_from_str"},"length":147,"severity":"ERROR","code":"22P02","where":"unnamed portal parameter $1 = '...'","file":"numeric.c","line":"7222","routine":"set_var_from_str"}
+2025-05-06T05:46:59.179Z [error]: Request payload: {"status":"approved","comments":"l"}
+2025-05-06T05:46:59.179Z [error]: Request params: {"id":"727dce5d-2271-4c22-ad80-9b2a51dbd86c"}
+2025-05-06T05:46:59.179Z [error]: Response: PUT /api/leave-requests/727dce5d-2271-4c22-ad80-9b2a51dbd86c/status - Status: 500 - Time: 50ms - Error: {"message":"An error occurred while updating the leave request status","error":"invalid input syntax for type numeric: \"0.01.0\""}
+2025-05-06T05:49:03.463Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T05:49:19.903Z [error]: Error in updateLeaveRequestStatus: TypeError: date.toISOString is not a function
+2025-05-06T05:49:19.904Z [error]: Error details: {}
+2025-05-06T05:49:19.904Z [error]: Request payload: {"status":"approved","comments":"M"}
+2025-05-06T05:49:19.904Z [error]: Request params: {"id":"9ed5f891-b2f8-49ed-829c-6ad7274b985a"}
+2025-05-06T05:49:19.904Z [error]: Response: PUT /api/leave-requests/9ed5f891-b2f8-49ed-829c-6ad7274b985a/status - Status: 500 - Time: 26ms - Error: {"message":"An error occurred while updating the leave request status","error":"date.toISOString is not a function"}
+2025-05-06T05:51:26.139Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T05:51:38.676Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T05:52:14.733Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T05:52:30.137Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T05:56:10.740Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.745Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.767Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.771Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.774Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.776Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.778Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:56:10.780Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T05:59:49.642Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T05:59:49.643Z [error]: Response: GET /api/roles - Status: 500 - Time: 28ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T05:59:50.654Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T05:59:50.655Z [error]: Response: GET /api/roles - Status: 500 - Time: 2ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T06:02:40.661Z [error]: Error starting server: Unknown authentication strategy admin in /api/approval-workflows
+2025-05-06T06:03:18.480Z [error]: Error starting server: Unknown authentication strategy admin in /api/approval-workflows
+2025-05-06T06:05:47.689Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T06:05:47.690Z [error]: Response: GET /api/roles - Status: 500 - Time: 26ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T06:05:48.707Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T06:05:48.708Z [error]: Response: GET /api/roles - Status: 500 - Time: 2ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T06:07:19.018Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:07:31.306Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:08:02.408Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 70ms - Error: {"message":"Invalid email or password"}
+2025-05-06T06:08:47.145Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:08:47.148Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:08:47.151Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:08:48.165Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:08:48.166Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:08:48.167Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:08:51.268Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:08:51.269Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:08:51.269Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:08:52.278Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:08:52.279Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:08:52.280Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:13:44.437Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:13:44.438Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:13:44.443Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:13:45.445Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:13:45.446Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:13:45.447Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:25:47.853Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:44:16.828Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:44:18.618Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:44:30.317Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:44:34.519Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:56:58.619Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:56:58.621Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:56:58.628Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:56:59.626Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T06:56:59.627Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T06:56:59.627Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T06:57:20.676Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:57:31.661Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:57:42.760Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T06:58:09.648Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T06:58:09.648Z [error]: Response: GET /api/roles - Status: 500 - Time: 26ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T07:00:14.186Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.192Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.197Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.200Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.203Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.206Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.209Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:14.211Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.346Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.349Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.360Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.366Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.372Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.376Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.379Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.382Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.385Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:00:21.387Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T07:05:43.694Z [error]: Error initializing workflows: QueryFailedError: invalid input syntax for type integer: "0.5"
+2025-05-06T07:05:43.713Z [error]: Error initializing approval workflows: invalid input syntax for type integer: "0.5"
+2025-05-06T08:11:41.487Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T08:11:41.489Z [error]: Response: GET /api/roles - Status: 500 - Time: 21ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T08:11:42.510Z [error]: Error fetching roles: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T08:11:42.511Z [error]: Response: GET /api/roles - Status: 500 - Time: 3ms - Error: {"error":"Failed to fetch roles"}
+2025-05-06T08:14:04.178Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.183Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.199Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.208Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.213Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.217Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.220Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.222Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.226Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:04.229Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.820Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.823Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.830Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.833Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.840Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.845Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.849Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.850Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.852Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.854Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.857Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.858Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.860Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.861Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.862Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.863Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.865Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:15.866Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.629Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.631Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.632Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.634Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.644Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.645Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.655Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.657Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.659Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.660Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.662Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.663Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.664Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.666Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.667Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.669Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.670Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:19.673Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.521Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.523Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.526Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.528Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.539Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.540Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.548Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.549Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.550Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.552Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.554Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.556Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.557Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.558Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.560Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.561Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.562Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:14:25.563Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.668Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.675Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.697Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.711Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.716Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.721Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.726Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.729Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.732Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:20:52.736Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.585Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.590Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.592Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.594Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.602Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.604Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.611Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.613Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.616Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.619Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.621Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.623Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.625Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.626Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.628Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.630Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.631Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:21:05.636Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.839Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.843Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.846Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.850Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.854Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.857Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.861Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:29:13.864Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T08:31:52.640Z [error]: Response: POST /api/auth/login - Status: 403 - Time: 9ms - Error: {"message":"Your account has been deactivated. Please contact an administrator."}
+2025-05-06T08:32:18.490Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T08:32:18.492Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T08:32:18.498Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T08:32:19.501Z [error]: Response: GET /api/users - Status: 500 - Time: 0ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T08:32:19.502Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T08:32:19.504Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T08:32:34.693Z [error]: Response: POST /api/auth/login - Status: 403 - Time: 3ms - Error: {"message":"Your account has been deactivated. Please contact an administrator."}
+2025-05-06T08:51:22.773Z [error]: Error fetching department: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T08:51:22.774Z [error]: Response: GET /api/departments/5906b5d7-5745-48a1-b1fe-99e706e7e5fe - Status: 500 - Time: 25ms - Error: {"error":"Failed to fetch department"}
+2025-05-06T08:51:33.148Z [error]: Error fetching department: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T08:51:33.148Z [error]: Response: GET /api/departments/5906b5d7-5745-48a1-b1fe-99e706e7e5fe - Status: 500 - Time: 6ms - Error: {"error":"Failed to fetch department"}
+2025-05-06T09:08:43.412Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-06T09:08:48.424Z [error]: Error synchronizing positions: No metadata for "Position" was found.
+2025-05-06T09:09:27.311Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-06T09:09:38.509Z [error]: Error synchronizing positions: No metadata for "Position" was found.
+2025-05-06T09:10:17.614Z [error]: Error starting server: column "firstName" of relation "users" contains null values
+2025-05-06T09:10:38.910Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-06T09:12:27.276Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-06T09:13:47.521Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-06T09:14:19.989Z [error]: Error synchronizing positions: No metadata for "Position" was found.
+2025-05-06T09:14:53.040Z [error]: Error creating default departments: No metadata for "Department" was found.
+2025-05-06T09:34:24.355Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.362Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.380Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.391Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.398Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.401Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.404Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.408Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.412Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:24.415Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.206Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.210Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.213Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.215Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.219Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.227Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.228Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.230Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.232Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.233Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.234Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.236Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.237Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.239Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.242Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.243Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.245Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:29.246Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.702Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.705Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.708Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.711Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.714Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.722Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.725Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:34:47.727Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.254Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.259Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.278Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.293Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.298Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.302Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.308Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.311Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.314Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:00.318Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.146Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.156Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.160Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.190Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.206Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.211Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.214Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T09:38:08.218Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.569Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.574Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.586Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.590Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.628Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.634Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.637Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:06:29.640Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.739Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.744Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.758Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.769Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.773Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.776Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.779Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.783Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.787Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:07:08.790Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T10:09:20.457Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T10:09:41.432Z [error]: Response: PUT /api/leave-requests/56d0103b-fca9-42ea-ab9e-ad11e0160d10/status - Status: 403 - Time: 10ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-06T10:10:41.404Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T10:10:41.404Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T10:10:41.408Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T10:24:27.378Z [error]: Response: PUT /api/leave-requests/56d0103b-fca9-42ea-ab9e-ad11e0160d10/status - Status: 403 - Time: 11ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-06T10:24:44.375Z [error]: Response: PUT /api/leave-requests/56d0103b-fca9-42ea-ab9e-ad11e0160d10/status - Status: 403 - Time: 64ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-06T10:29:51.238Z [error]: Response: PUT /api/leave-requests/56d0103b-fca9-42ea-ab9e-ad11e0160d10/status - Status: 403 - Time: 14ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-06T11:19:39.051Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.054Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.113Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.125Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.130Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.133Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.136Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.140Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.143Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:19:39.146Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:24:59.792Z [error]: Response: POST /api/leave-requests - Status: 404 - Time: 65ms - Error: {"message":"No leave balance found for this leave type"}
+2025-05-06T11:25:09.568Z [error]: Response: POST /api/leave-requests - Status: 404 - Time: 7ms - Error: {"message":"No leave balance found for this leave type"}
+2025-05-06T11:25:38.356Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.360Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.364Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.368Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.372Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.375Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.378Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:25:38.382Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:26:47.938Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:26:47.939Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:26:47.948Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:26:48.945Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 0ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:26:48.946Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:26:48.946Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:26:51.811Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:26:51.811Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:26:51.813Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:27:13.922Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.927Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.939Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.953Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.957Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.959Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.962Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.965Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.970Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:27:13.973Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:07.828Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:28:07.940Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:28:08.052Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:28:08.160Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:28:08.261Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:28:08.286Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.289Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.290Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.292Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.297Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.305Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.307Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.318Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.324Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.326Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.335Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.339Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.341Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.343Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.344Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.345Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.350Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.351Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.353Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.355Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.357Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.359Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.360Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.361Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.370Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.380Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:08.384Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:28:49.505Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:29:16.431Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:29:16.432Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:29:16.433Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:29:18.519Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 0ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:29:18.520Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:29:18.521Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:30:28.600Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.605Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.622Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.635Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.641Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.645Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.648Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.651Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.654Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.657Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:28.660Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:30:58.641Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:30:58.642Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:30:58.642Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:30:59.658Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:30:59.659Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:30:59.660Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:31:09.598Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:31:58.854Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-06T11:34:16.148Z [error]: Response: PUT /api/leave-requests/988adfb0-9248-4054-9493-93e1d2bac296/status - Status: 403 - Time: 7ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-06T11:34:45.358Z [error]: Response: PUT /api/leave-requests/988adfb0-9248-4054-9493-93e1d2bac296/status - Status: 403 - Time: 10ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-06T11:41:38.778Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.785Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.801Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.812Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.817Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.822Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.827Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.830Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.833Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.836Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:41:38.838Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:43:59.948Z [error]: Error fetching position: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T11:43:59.949Z [error]: Response: GET /api/positions/08a29b12-fad7-48ff-8a12-5ea5c8d9c824 - Status: 500 - Time: 32ms - Error: {"error":"Failed to fetch position"}
+2025-05-06T11:44:00.001Z [error]: Error fetching position: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T11:44:00.001Z [error]: Response: GET /api/positions/08a29b12-fad7-48ff-8a12-5ea5c8d9c824 - Status: 500 - Time: 48ms - Error: {"error":"Failed to fetch position"}
+2025-05-06T11:45:05.985Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:05.989Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.002Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.016Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.019Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.023Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.029Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.032Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.035Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.039Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:45:06.043Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-06T11:46:15.553Z [error]: Error fetching position: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T11:46:15.553Z [error]: Response: GET /api/positions/9737bc94-9efc-4e40-a97a-cf1f550cb28f - Status: 500 - Time: 6ms - Error: {"error":"Failed to fetch position"}
+2025-05-06T11:46:15.613Z [error]: Error fetching position: Cannot read properties of undefined (reading 'joinColumns')
+2025-05-06T11:46:15.613Z [error]: Response: GET /api/positions/9737bc94-9efc-4e40-a97a-cf1f550cb28f - Status: 500 - Time: 56ms - Error: {"error":"Failed to fetch position"}
+2025-05-06T11:48:56.047Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 3ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:48:56.055Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:48:56.081Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:48:57.063Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:48:57.064Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:48:57.064Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:01.844Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:01.845Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:01.846Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:02.854Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:02.855Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:02.857Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:10.055Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:10.056Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:10.057Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:11.060Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:11.061Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:11.061Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:12.663Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 0ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:12.664Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:12.665Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:13.671Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:13.672Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:13.672Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:13.785Z [error]: Response: GET /api/users - Status: 500 - Time: 0ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:13.786Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:13.787Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:50:14.800Z [error]: Response: GET /api/users - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-06T11:50:14.802Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-06T11:50:14.803Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-06T11:52:59.106Z [error]: Response: POST /api/approval-workflows - Status: 400 - Time: 3ms - Error: {"message":"Name, minDays, maxDays, and approvalLevels are required"}
+2025-05-06T11:53:18.163Z [error]: Response: POST /api/approval-workflows - Status: 400 - Time: 2ms - Error: {"message":"Name, minDays, maxDays, and approvalLevels are required"}
+2025-05-06T11:54:12.090Z [error]: Response: POST /api/approval-workflows - Status: 400 - Time: 7ms - Error: {"message":"Name, minDays, maxDays, and approvalLevels are required"}
+2025-05-06T11:57:59.695Z [error]: Response: POST /api/approval-workflows - Status: 409 - Time: 54ms - Error: {"message":"This workflow overlaps with an existing workflow"}
+2025-05-07T08:20:21.639Z [error]: Error ensuring default users: column User.hrId does not exist
+2025-05-07T08:20:21.715Z [error]: Error creating test user: column User.hrId does not exist
+2025-05-07T08:20:26.381Z [error]: Error in login: QueryFailedError: column User.hrId does not exist
+2025-05-07T08:20:26.382Z [error]: Response: POST /api/auth/login - Status: 500 - Time: 10ms - Error: {"message":"An error occurred while logging in"}
+2025-05-07T08:24:11.571Z [error]: Error applying migration: constraint "FK_users_hr" for relation "users" already exists
+2025-05-07T08:35:20.043Z [error]: Error updating approval workflows: No metadata for "ApprovalWorkflow" was found.
+2025-05-07T08:36:56.449Z [error]: Error initializing approval workflows: No metadata for "ApprovalWorkflow" was found.
+2025-05-07T08:39:00.738Z [error]: Error updating workflow 047781bd-5b81-4bfd-9928-8bd1ae41c8b5: Cannot read properties of undefined (reading 'includes')
+2025-05-07T08:39:00.747Z [error]: Error updating workflow 685f034b-021d-49e0-8094-df2eddc8812c: Cannot read properties of undefined (reading 'includes')
+2025-05-07T08:40:31.494Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T08:40:31.495Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T08:40:31.506Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T08:40:32.508Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T08:40:32.510Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T08:40:32.513Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T08:40:49.173Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 4ms - Error: {"message":"Invalid email or password"}
+2025-05-07T08:41:17.292Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 9ms - Error: {"message":"Invalid email or password"}
+2025-05-07T08:42:01.475Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.500Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.505Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.583Z [error]: Response: OPTIONS /api/leave-balances/check-type/7ed73f44-f41a-48b7-b70a-285994400482 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.627Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.630Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.634Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.639Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.646Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:01.651Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.284Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.289Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.314Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.330Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.337Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 3ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.342Z [error]: Response: OPTIONS /api/leave-balances/check-type/7ed73f44-f41a-48b7-b70a-285994400482 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.347Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.351Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.357Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.362Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.366Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:42:05.370Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T08:49:24.478Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 7ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T08:49:24.480Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T08:49:24.491Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T08:49:25.489Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T08:49:25.492Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T08:49:25.496Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T08:49:31.877Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 5ms - Error: {"message":"Invalid email or password"}
+2025-05-07T09:07:10.246Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:07:10.248Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:07:10.257Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:07:11.266Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:07:11.268Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:07:11.269Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:07:33.489Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:07:33.494Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:07:33.496Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:07:34.510Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 3ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:07:34.511Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:07:34.512Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:08:00.961Z [error]: Response: PUT /api/leave-requests/753cc71b-be10-4614-a9b2-1246fd1bfb80/status - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:08:00.963Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:08:00.963Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:10:13.524Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:11:00.584Z [error]: Error in updateLeaveRequestStatus: QueryFailedError: invalid input value for enum leave_request_status_enum: "partially_approved"
+2025-05-07T09:11:00.585Z [error]: Error details: {"query":"UPDATE \"leave_requests\" SET \"status\" = $1, \"approverId\" = $2, \"approverComments\" = $3, \"metadata\" = $4, \"updatedAt\" = CURRENT_TIMESTAMP WHERE \"id\" IN ($5) RETURNING \"updatedAt\"","parameters":["partially_approved","46217a1f-bd76-4c3c-8ac0-70ecc3e0f7f2","Approved at level 1 by Kesava Pradha  Rajendra Babu\nComments: Ok","{\"currentApprovalLevel\":1,\"requiredApprovalLevels\":[1,2,3,4],\"approvalHistory\":[{\"level\":1,\"approverId\":\"46217a1f-bd76-4c3c-8ac0-70ecc3e0f7f2\",\"approverName\":\"Kesava Pradha  Rajendra Babu\",\"approvedAt\":\"2025-05-07T09:11:00.576Z\",\"comments\":\"Ok\"}]}","5e81933e-dd28-468d-80ee-7937addb2a27"],"driverError":{"length":163,"name":"error","severity":"ERROR","code":"22P02","where":"unnamed portal parameter $1 = '...'","file":"enum.c","line":"133","routine":"enum_in"},"length":163,"severity":"ERROR","code":"22P02","where":"unnamed portal parameter $1 = '...'","file":"enum.c","line":"133","routine":"enum_in"}
+2025-05-07T09:11:00.586Z [error]: Request payload: {"status":"approved","comments":"Ok"}
+2025-05-07T09:11:00.587Z [error]: Request params: {"id":"5e81933e-dd28-468d-80ee-7937addb2a27"}
+2025-05-07T09:11:00.587Z [error]: Response: PUT /api/leave-requests/5e81933e-dd28-468d-80ee-7937addb2a27/status - Status: 500 - Time: 36ms - Error: {"message":"An error occurred while updating the leave request status","error":"invalid input value for enum leave_request_status_enum: \"partially_approved\""}
+2025-05-07T09:13:00.234Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:13:00.419Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:13:49.647Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 72ms - Error: {"message":"Invalid email or password"}
+2025-05-07T09:19:03.629Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
+2025-05-07T09:22:41.581Z [error]: Response: POST /api/leave-requests - Status: 404 - Time: 67ms - Error: {"message":"No leave balance found for this leave type"}
+2025-05-07T09:22:49.869Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:23:09.286Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:23:27.226Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 4ms - Error: {"message":"Invalid email or password"}
+2025-05-07T09:31:04.493Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 69ms - Error: {"message":"Invalid email or password"}
+2025-05-07T09:31:12.386Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 2ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:31:12.388Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:31:12.395Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:31:13.408Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T09:31:13.409Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T09:31:13.410Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\test\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T09:33:48.556Z [error]: Response: PUT /api/leave-requests/5e81933e-dd28-468d-80ee-7937addb2a27/status - Status: 400 - Time: 9ms - Error: {"message":"Only pending leave requests can be approved or rejected"}
+2025-05-07T09:35:34.878Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:35:35.176Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:35:52.015Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 6ms - Error: {"message":"Invalid email or password"}
+2025-05-07T09:36:04.627Z [error]: Response: PUT /api/leave-requests/5e81933e-dd28-468d-80ee-7937addb2a27/status - Status: 403 - Time: 18ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-07T09:36:17.237Z [error]: Response: PUT /api/leave-requests/5e81933e-dd28-468d-80ee-7937addb2a27/status - Status: 403 - Time: 15ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-07T09:36:26.236Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 4ms - Error: {"message":"Invalid email or password"}
+2025-05-07T09:36:35.711Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:36:35.900Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:36:39.159Z [error]: Response: PUT /api/leave-requests/5e81933e-dd28-468d-80ee-7937addb2a27/status - Status: 403 - Time: 15ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-07T09:36:49.136Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.145Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.172Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.190Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.197Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.203Z [error]: Response: OPTIONS /api/leave-balances/check-type/7ed73f44-f41a-48b7-b70a-285994400482 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.207Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.212Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.218Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.223Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.226Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:36:49.231Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:11.448Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T09:53:49.797Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.803Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.831Z [error]: Response: OPTIONS /api/leave-balances/check-type/34d2349f-787f-408f-9f8a-9107f0db1d25 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.857Z [error]: Response: OPTIONS /api/leave-balances/check-type/c4cb797c-b286-42c2-b61d-a995e57e9319 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.864Z [error]: Response: OPTIONS /api/leave-balances/check-type/f01b66b8-1600-4c6c-8437-15a2774bff8a - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.871Z [error]: Response: OPTIONS /api/leave-balances/check-type/7ed73f44-f41a-48b7-b70a-285994400482 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.876Z [error]: Response: OPTIONS /api/leave-balances/check-type/42cf3abe-82d9-48ab-a945-a87d09797fef - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.882Z [error]: Response: OPTIONS /api/leave-balances/check-type/0eefc875-a751-4252-af85-769397aa79a1 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.888Z [error]: Response: OPTIONS /api/leave-balances/check-type/daf9afd0-d181-4c32-b980-0f7acbc5de9c - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.893Z [error]: Response: OPTIONS /api/leave-balances/check-type/6a5a8b8f-a983-49c6-bb3f-ba4e1b1afff3 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.897Z [error]: Response: OPTIONS /api/leave-balances/check-type/7c7b95a0-2103-4635-8094-347cf017a000 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T09:53:49.903Z [error]: Response: OPTIONS /api/leave-balances/check-type/11568b0a-df7d-4a37-abe5-c42d34f152b5 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T14:49:33.564Z [error]: Error running migrations: relation "positions" does not exist
+2025-05-07T14:49:33.608Z [error]: Error creating test user: relation "users" does not exist
+2025-05-07T14:49:33.622Z [error]: Error synchronizing departments: relation "departments" does not exist
+2025-05-07T14:49:33.623Z [error]: Error during essential data synchronization: QueryFailedError: relation "departments" does not exist
+2025-05-07T14:49:33.623Z [error]: Error synchronizing essential data: relation "departments" does not exist
+2025-05-07T16:42:25.237Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-07T16:42:25.237Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-07T16:42:25.450Z [error]: Error synchronizing positions: column "level" of relation "positions" does not exist
+2025-05-07T16:42:25.451Z [error]: Error during essential data synchronization: QueryFailedError: column "level" of relation "positions" does not exist
+2025-05-07T16:42:25.451Z [error]: Error synchronizing essential data: column "level" of relation "positions" does not exist
+2025-05-07T16:45:04.688Z [error]: Error creating default positions: column Position.level does not exist
+2025-05-07T16:48:08.463Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 71ms - Error: {"message":"Invalid email or password"}
+2025-05-07T16:48:28.383Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 71ms - Error: {"message":"Invalid email or password"}
+2025-05-07T16:49:02.727Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 47ms - Error: {"message":"Invalid email or password"}
+2025-05-07T16:50:12.787Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 6ms - Error: {"message":"Invalid email or password"}
+2025-05-07T16:51:00.407Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 160ms - Error: {"message":"Invalid email or password"}
+2025-05-07T17:09:36.593Z [error]: Error in updateUser: QueryFailedError: invalid input syntax for type uuid: ""
+2025-05-07T17:09:36.593Z [error]: Response: PUT /api/users/846a5884-985e-4353-a1e7-fa1c11ac4ce8 - Status: 500 - Time: 50ms - Error: {"message":"An error occurred while updating the user"}
+2025-05-07T17:10:31.593Z [error]: Error ensuring super admin exists: EntityMetadataNotFoundError: No metadata for "User" was found.
+2025-05-07T17:18:31.636Z [error]: Error in updateUser: QueryFailedError: invalid input syntax for type uuid: ""
+2025-05-07T17:18:31.636Z [error]: Response: PUT /api/users/46c2d545-4905-4125-896c-db44147d4176 - Status: 500 - Time: 9ms - Error: {"message":"An error occurred while updating the user"}
+2025-05-07T17:19:58.743Z [error]: Error in updateUser: QueryFailedError: invalid input syntax for type uuid: ""
+2025-05-07T17:19:58.744Z [error]: Response: PUT /api/users/128a9ec5-70a3-49b9-b7c3-e13603278d9e - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while updating the user"}
+2025-05-07T17:20:04.799Z [error]: Error in updateUser: QueryFailedError: invalid input syntax for type uuid: ""
+2025-05-07T17:20:04.799Z [error]: Response: PUT /api/users/128a9ec5-70a3-49b9-b7c3-e13603278d9e - Status: 500 - Time: 5ms - Error: {"message":"An error occurred while updating the user"}
+2025-05-07T17:22:32.357Z [error]: Error in updateUser: QueryFailedError: invalid input syntax for type uuid: ""
+2025-05-07T17:22:32.357Z [error]: Response: PUT /api/users/128a9ec5-70a3-49b9-b7c3-e13603278d9e - Status: 500 - Time: 7ms - Error: {"message":"An error occurred while updating the user"}
+2025-05-07T17:38:47.277Z [error]: Response: GET /api/users - Status: 500 - Time: 3ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:38:47.279Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:38:47.284Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:38:48.291Z [error]: Response: GET /api/users - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:38:48.291Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:38:48.292Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:39:14.074Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.076Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.092Z [error]: Response: OPTIONS /api/leave-balances/check-type/c54d962d-66bb-4bb8-a9e1-eccf338aedb4 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.104Z [error]: Response: OPTIONS /api/leave-balances/check-type/7bca030e-d5ef-477c-b07f-4cf3f7bfad55 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.109Z [error]: Response: OPTIONS /api/leave-balances/check-type/84f27c22-6db1-4503-adf4-75b62bb600ab - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.112Z [error]: Response: OPTIONS /api/leave-balances/check-type/9c275bb9-03bc-4fee-935d-19c025e5119d - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.117Z [error]: Response: OPTIONS /api/leave-balances/check-type/dc31101d-0991-436d-8f39-ee6f523ccb61 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.120Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.123Z [error]: Response: OPTIONS /api/leave-balances/check-type/63b40e97-3761-4205-904b-395e57dddf31 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:39:14.126Z [error]: Response: OPTIONS /api/leave-balances/check-type/cf358093-5cc0-4ecb-a11b-dd8520b145c7 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.783Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.786Z [error]: Response: OPTIONS /api/leave-balances/check-type/c54d962d-66bb-4bb8-a9e1-eccf338aedb4 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.788Z [error]: Response: OPTIONS /api/leave-balances/check-type/c54d962d-66bb-4bb8-a9e1-eccf338aedb4 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.791Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.796Z [error]: Response: OPTIONS /api/leave-balances/check-type/7bca030e-d5ef-477c-b07f-4cf3f7bfad55 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.798Z [error]: Response: OPTIONS /api/leave-balances/check-type/7bca030e-d5ef-477c-b07f-4cf3f7bfad55 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.805Z [error]: Response: OPTIONS /api/leave-balances/check-type/84f27c22-6db1-4503-adf4-75b62bb600ab - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.806Z [error]: Response: OPTIONS /api/leave-balances/check-type/84f27c22-6db1-4503-adf4-75b62bb600ab - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.808Z [error]: Response: OPTIONS /api/leave-balances/check-type/9c275bb9-03bc-4fee-935d-19c025e5119d - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.810Z [error]: Response: OPTIONS /api/leave-balances/check-type/9c275bb9-03bc-4fee-935d-19c025e5119d - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.811Z [error]: Response: OPTIONS /api/leave-balances/check-type/dc31101d-0991-436d-8f39-ee6f523ccb61 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.813Z [error]: Response: OPTIONS /api/leave-balances/check-type/dc31101d-0991-436d-8f39-ee6f523ccb61 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.814Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.816Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.818Z [error]: Response: OPTIONS /api/leave-balances/check-type/63b40e97-3761-4205-904b-395e57dddf31 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.820Z [error]: Response: OPTIONS /api/leave-balances/check-type/63b40e97-3761-4205-904b-395e57dddf31 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.821Z [error]: Response: OPTIONS /api/leave-balances/check-type/cf358093-5cc0-4ecb-a11b-dd8520b145c7 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:00.822Z [error]: Response: OPTIONS /api/leave-balances/check-type/cf358093-5cc0-4ecb-a11b-dd8520b145c7 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.433Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.434Z [error]: Response: OPTIONS /api/leave-balances/check-type/c54d962d-66bb-4bb8-a9e1-eccf338aedb4 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.436Z [error]: Response: OPTIONS /api/leave-balances/check-type/c54d962d-66bb-4bb8-a9e1-eccf338aedb4 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.438Z [error]: Response: GET /api/api/leave-balances/check-flushed - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.443Z [error]: Response: OPTIONS /api/leave-balances/check-type/7bca030e-d5ef-477c-b07f-4cf3f7bfad55 - Status: 404 - Time: 2ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.445Z [error]: Response: OPTIONS /api/leave-balances/check-type/7bca030e-d5ef-477c-b07f-4cf3f7bfad55 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.451Z [error]: Response: OPTIONS /api/leave-balances/check-type/84f27c22-6db1-4503-adf4-75b62bb600ab - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.452Z [error]: Response: OPTIONS /api/leave-balances/check-type/84f27c22-6db1-4503-adf4-75b62bb600ab - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.454Z [error]: Response: OPTIONS /api/leave-balances/check-type/9c275bb9-03bc-4fee-935d-19c025e5119d - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.455Z [error]: Response: OPTIONS /api/leave-balances/check-type/9c275bb9-03bc-4fee-935d-19c025e5119d - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.456Z [error]: Response: OPTIONS /api/leave-balances/check-type/dc31101d-0991-436d-8f39-ee6f523ccb61 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.458Z [error]: Response: OPTIONS /api/leave-balances/check-type/dc31101d-0991-436d-8f39-ee6f523ccb61 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.459Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.461Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.463Z [error]: Response: OPTIONS /api/leave-balances/check-type/63b40e97-3761-4205-904b-395e57dddf31 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.465Z [error]: Response: OPTIONS /api/leave-balances/check-type/63b40e97-3761-4205-904b-395e57dddf31 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.466Z [error]: Response: OPTIONS /api/leave-balances/check-type/cf358093-5cc0-4ecb-a11b-dd8520b145c7 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:09.468Z [error]: Response: OPTIONS /api/leave-balances/check-type/cf358093-5cc0-4ecb-a11b-dd8520b145c7 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:16.412Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 0ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:17.428Z [error]: Response: OPTIONS /api/leave-balances/check-type/7a3286a6-72f3-4288-ba68-7ec217d15295 - Status: 404 - Time: 1ms - Error: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-05-07T17:40:19.382Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:19.491Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:19.601Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:19.714Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:19.842Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:19.972Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.092Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.198Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.305Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.411Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.518Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.636Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.743Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.857Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:40:20.963Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:41:23.439Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:41:23.548Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:41:41.236Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:41:41.371Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:52:03.181Z [error]: Response: PUT /api/leave-requests/2c06e089-ce12-428c-84df-28e07c9c839f/status - Status: 403 - Time: 10ms - Error: {"message":"You do not have the required role to approve this leave request"}
+2025-05-07T17:52:48.152Z [error]: Response: POST /api/auth/login - Status: 401 - Time: 105ms - Error: {"message":"Invalid email or password"}
+2025-05-07T17:54:16.000Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:54:16.183Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T17:56:00.882Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:56:00.883Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:56:00.884Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:56:01.891Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:56:01.892Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:56:01.893Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:56:57.298Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:56:57.299Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:56:57.300Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:56:58.307Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:56:58.308Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:56:58.309Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:58:32.847Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:58:32.848Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:58:32.848Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T17:58:33.860Z [error]: Response: GET /api/dashboard/manager - Status: 500 - Time: 1ms - Error: {"statusCode":500,"error":"Internal Server Error","message":"An internal server error occurred"}
+2025-05-07T17:58:33.861Z [error]: Server error: Insufficient permissions to access this resource
+2025-05-07T17:58:33.861Z [error]: Stack: Error: Insufficient permissions to access this resource
+    at Object.authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\src\plugins\auth.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async exports.Manager.execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\toolkit.js:60:28)
+    at async module.exports.internals.Auth._authenticate (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\auth.js:273:30)
+    at async Request._lifecycle (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:370:32)
+    at async Request._execute (C:\Users\HarishKalyanaperumal\Documents\train - Copy\server\node_modules\@hapi\hapi\lib\request.js:280:9)
+2025-05-07T18:02:10.683Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:02:10.686Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:02:10.741Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-07T18:02:11.282Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:02:11.283Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-07T18:02:11.283Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-07T18:07:02.836Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:07:02.839Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:07:02.889Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-07T18:07:03.316Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:07:03.317Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-07T18:07:03.317Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-07T18:24:29.361Z [error]: Response: PUT /api/leave-requests/2c06e089-ce12-428c-84df-28e07c9c839f/status - Status: 403 - Time: 52ms - Error: {"message":"You are not authorized to approve leave requests for this department"}
+2025-05-07T18:24:54.759Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T18:24:54.856Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T18:25:23.567Z [error]: Error sending email: Error: getaddrinfo ENOTFOUND smtp.example.com
+2025-05-07T18:38:38.303Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:38:38.307Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:38:38.373Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-07T18:38:39.004Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-07T18:38:39.004Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-07T18:38:39.005Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:16:25.046Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:16:25.053Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:16:25.138Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-08T03:16:25.829Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:16:25.830Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:16:25.831Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:25:46.423Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:25:46.426Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:25:46.536Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-08T03:25:47.939Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:25:47.939Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:25:47.942Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:26:16.549Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:26:16.555Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:26:16.632Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-08T03:26:17.193Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:26:17.194Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:26:17.194Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:26:17.395Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
+2025-05-08T03:26:53.715Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:26:53.717Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:26:53.791Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-08T03:26:54.315Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:26:54.316Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:26:54.317Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:26:54.492Z [error]: Error starting server: listen EADDRINUSE: address already in use ::1:3000
+2025-05-08T03:27:40.827Z [error]: * Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:27:40.830Z [error]: * Error running migration undefined: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:27:40.912Z [error]: * Error running migration undefined: constraint "FK_users_hr" for relation "users" already exists
+2025-05-08T03:27:41.458Z [error]: Error running migrations: column "min_days" of relation "approval_workflows" does not exist
+2025-05-08T03:27:41.458Z [error]: Error in migration process: Cannot read properties of undefined (reading 'split')
+2025-05-08T03:27:41.459Z [error]: Error running migrations: Cannot read properties of undefined (reading 'split')

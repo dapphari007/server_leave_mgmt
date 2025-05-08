@@ -63,6 +63,36 @@ export const initializeDatabase = async (): Promise<void> => {
     const pendingMigrations = await AppDataSource.showMigrations();
     if (pendingMigrations) {
       logger.info("* There are pending migrations that need to be applied");
+      
+      try {
+        // Run migrations automatically
+        logger.info("* Running pending migrations...");
+        await AppDataSource.runMigrations();
+        logger.info("* Migrations completed successfully");
+      } catch (migrationError) {
+        logger.error("* Error running migrations:", migrationError);
+        
+        // Try running migrations one by one
+        logger.info("* Attempting to run migrations individually...");
+        
+        try {
+          // Get all migration files
+          const migrationFiles = AppDataSource.migrations;
+          
+          for (const migration of migrationFiles) {
+            try {
+              const queryRunner = AppDataSource.createQueryRunner();
+              await migration.up(queryRunner);
+              await queryRunner.release();
+              logger.info(`* Successfully ran migration: ${migration.name}`);
+            } catch (singleMigrationError) {
+              logger.error(`* Error running migration ${migration.name}:`, singleMigrationError);
+            }
+          }
+        } catch (migrationListError) {
+          logger.error("* Error getting migrations list:", migrationListError);
+        }
+      }
     }
 
     logger.info("* Database check completed, preserving all existing data");

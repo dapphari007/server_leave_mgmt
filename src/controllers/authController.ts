@@ -141,11 +141,21 @@ export const login = async (request: Request, h: ResponseToolkit) => {
     // Remove password from response
     const { password: _, ...userWithoutPassword } = user;
 
+    // Ensure all necessary fields are included in the response
+    const userResponse = {
+      ...userWithoutPassword,
+      managerId: user.managerId,
+      hrId: user.hrId,
+      teamLeadId: user.teamLeadId,
+      department: user.department,
+      position: user.position,
+    };
+
     return h
       .response({
         message: "Login successful",
         token,
-        user: userWithoutPassword,
+        user: userResponse,
       })
       .code(200);
   } catch (error) {
@@ -179,9 +189,19 @@ export const getProfile = async (request: Request, h: ResponseToolkit) => {
     // Remove password from response
     const { password, ...userWithoutPassword } = user;
 
+    // Ensure all necessary fields are included in the response
+    const userResponse = {
+      ...userWithoutPassword,
+      managerId: user.managerId,
+      hrId: user.hrId,
+      teamLeadId: user.teamLeadId,
+      department: user.department,
+      position: user.position,
+    };
+
     return h
       .response({
-        user: userWithoutPassword,
+        user: userResponse,
       })
       .code(200);
   } catch (error) {

@@ -94,7 +94,12 @@ export const authPlugin = {
     });
 
     server.auth.strategy("manager_hr", "role-based", {
-      roles: [UserRole.SUPER_ADMIN, UserRole.MANAGER, UserRole.HR],
+      roles: [UserRole.SUPER_ADMIN, UserRole.MANAGER, UserRole.HR, UserRole.TEAM_LEAD],
+    });
+    
+    // Add admin strategy - for backward compatibility
+    server.auth.strategy("admin", "role-based", {
+      roles: [UserRole.SUPER_ADMIN, UserRole.MANAGER],
     });
 
     server.auth.strategy("all_roles", "role-based", {

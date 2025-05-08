@@ -32,6 +32,9 @@ export class Position {
   @JoinColumn({ name: "departmentId" })
   department: Department;
 
+  @Column({ type: "int", default: 1 })
+  level: number;
+
   @CreateDateColumn()
   createdAt: Date;
 

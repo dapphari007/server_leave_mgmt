@@ -20,10 +20,15 @@ export interface TokenUser {
   email: string;
   role: UserRole;
   level: UserLevel;
+  managerId?: string;
+  hrId?: string;
+  teamLeadId?: string;
+  department?: string;
+  position?: string;
 }
 
 export const generateToken = (user: TokenUser): string => {
-  const { id, email, role, level } = user;
+  const { id, email, role, level, managerId, hrId, teamLeadId, department, position } = user;
 
   const token = require("@hapi/jwt").token.generate(
     {
@@ -33,6 +38,11 @@ export const generateToken = (user: TokenUser): string => {
       email,
       role,
       level,
+      managerId,
+      hrId,
+      teamLeadId,
+      department,
+      position,
     },
     {
       key: config.jwt.secret,

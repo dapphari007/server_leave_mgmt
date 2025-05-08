@@ -87,6 +87,12 @@ export class User {
   @Column({ nullable: true })
   managerId: string;
 
+  @Column({ nullable: true })
+  hrId: string;
+
+  @Column({ nullable: true })
+  teamLeadId: string;
+
   // Keep the string column for backward compatibility
   @Column({ nullable: true, length: 100 })
   department: string;
